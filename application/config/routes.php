@@ -62,6 +62,7 @@ $route['dashboard'] = 'Backdev';
 $route['stand-manager'] = 'Backdev/stand';
 $route['reset'] = 'Backdev/resetallstand';
 $route['menu-manager'] = 'Backdev/menu';
+$route['add-menu'] = 'Backdev/tambahMenu';
 $route['qr-prime'] = 'Backdev/qrprime';
 $route['qr-stand'] = 'Backdev/qrstand';
 $route['account-manager'] = 'Backdev/account';
