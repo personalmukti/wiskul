@@ -93,6 +93,14 @@ class DataManager_model extends CI_Model
 		return TRUE;
 	}
 
+	function getthismenu($id)
+	{
+		$this->db->where('id', $id);
+		$hasil = $this->db->get('menu');
+
+		return $hasil;
+	}
+
 	function updateMenu($data, $id)
 	{
 		$this->db->where('id', $id);
@@ -171,6 +179,14 @@ class DataManager_model extends CI_Model
 	{
 		$this->db->where('id', $id);
 		return $this->db->get('stand')->result_array();
+	}
+
+	function showItem($id)
+	{
+		$this->db->where('id', $id);
+		$item = $this->db->get('menu');
+
+		return $item;
 	}
 }
 

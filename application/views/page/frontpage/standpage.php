@@ -16,18 +16,19 @@
 			<div class="row">
 				<?php foreach ($menus as $menu) : ?>
 					<div class="col-md-6 col-lg-3 ftco-animate">
-						<div class="product">
-							<a href="#" class="img-prod"><img class="img-fluid" src="<?= base_url(); ?>assets/image/<?= $menu['gbr_menu']; ?>" alt="Gambar Menu">
-							</a>
-							<div class="text py-3 pb-4 px-3 text-center">
-								<h3><a href="#"><?= $menu['nama_menu']; ?></a></h3>
-								<div class="d-flex">
-									<div class="pricing">
-										<p class="price"><span class="price-sale">Rp. <?= $menu['harga_menu']; ?>,-</span></p>
+						<a href="<?= base_url(); ?>Home/readMenu/<?= $menu['id']; ?>">
+							<div class="product">
+								<img class="img-fluid" src="<?= base_url(); ?>assets/image/<?= $menu['gbr_menu']; ?>" alt="Gambar Menu">
+								<div class="text py-3 pb-4 px-3 text-center">
+									<h3><?= $menu['nama_menu']; ?></h3>
+									<div class="d-flex">
+										<div class="pricing">
+											<p class="price"><span class="price-sale">Rp. <?= $menu['harga_menu']; ?>,-</span></p>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 				<?php endforeach ?>
 			</div>

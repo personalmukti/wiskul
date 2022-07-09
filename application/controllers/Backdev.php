@@ -153,6 +153,43 @@ class Backdev extends CI_Controller
 		$this->template->load('template/template', 'page/dashboard/menu', $data);
 	}
 
+	public function tambahMenu()
+	{
+		$data['title'] = 'Tambah Menu | Wisata Kuliner Garut';
+		$data['pagename'] = 'Menu Manager';
+
+		$data['mhome'] = '';
+		$data['mstand'] = '';
+		$data['mmenu'] = 'active';
+		$data['mprofil'] = '';
+		$data['mbarcode'] = '';
+		$data['mprofil'] = '';
+		$data['msetting'] = '';
+
+		$data['dstand'] = $this->DataManager_model->getActiveStand();
+
+		$this->template->load('template/template', 'page/dashboard/postmenu', $data);
+	}
+
+	public function updateMenu($id)
+	{
+		$data['title'] = 'Edit Menu | Wisata Kuliner Garut';
+		$data['pagename'] = 'Menu Manager';
+
+		$data['mhome'] = '';
+		$data['mstand'] = '';
+		$data['mmenu'] = 'active';
+		$data['mprofil'] = '';
+		$data['mbarcode'] = '';
+		$data['mprofil'] = '';
+		$data['msetting'] = '';
+
+		$data['dstand'] = $this->DataManager_model->getActiveStand();
+		$data['dmenu'] = $this->DataManager_model->getthismenu($id);
+
+		$this->template->load('template/template', 'page/dashboard/editmenu', $data);
+	}
+
 	public function saveMenu()
 	{
 		$config['upload_path'] = './assets/image/'; //path folder
@@ -203,8 +240,9 @@ class Backdev extends CI_Controller
 
 	public function editMenu()
 	{
-		$gbrnow = $this->input->post('gbr_menu');
+		$gbrnow = $this->input->post('fotolama');
 		unlink("./assets/image/" . $gbrnow);
+
 		$id = $this->input->post('id');
 
 		$config['upload_path'] = './assets/image/'; //path folder

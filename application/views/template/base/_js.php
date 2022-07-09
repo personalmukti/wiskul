@@ -44,44 +44,67 @@
 <!-- AdminLTE App -->
 <script src="<?= base_url(); ?>assets/lte/dist/js/adminlte.js"></script>
 <script>
-  $(function () {
+  $(function() {
     $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "responsive": true,
+      "lengthChange": false,
+      "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
   });
 
   //bsCustomFileInput
-  $(function () {
+  $(function() {
     bsCustomFileInput.init();
   });
 
   $(document).ready(function() {
-         // Untuk sunting
-         $('#edit-data').on('show.bs.modal', function (event) {
-             var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
-             var modal          = $(this)
+    // Untuk sunting
+    $('#edit-data').on('show.bs.modal', function(event) {
+      var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+      var modal = $(this)
 
-             // Isi nilai pada field
-             modal.find('#id').attr("value",div.data('id'));
-             modal.find('#nama_slot').attr("value",div.data('nama_slot'));
-             modal.find('#pemilik').attr("value",div.data('pemilik'));
-             modal.find('#slogan').html(div.data('slogan'));
-         });
-     });
+      // Isi nilai pada field
+      modal.find('#id').attr("value", div.data('id'));
+      modal.find('#nama_slot').attr("value", div.data('nama_slot'));
+      modal.find('#pemilik').attr("value", div.data('pemilik'));
+      modal.find('#slogan').html(div.data('slogan'));
+    });
+  });
   $(document).ready(function() {
-         // Untuk sunting
-         $('#edit-menu').on('show.bs.modal', function (event) {
-             var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
-             var modal          = $(this)
+    // Untuk sunting
+    $('#edit-menu').on('show.bs.modal', function(event) {
+      var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+      var modal = $(this)
 
-             // Isi nilai pada field
-             modal.find('#id').attr("value",div.data('id'));
-             modal.find('#nama_slot').attr("value",div.data('nama_slot'));
-             modal.find('#nama_menu').attr("value",div.data('nama_menu'));
-             modal.find('#gbr_menu').attr("value",div.data('gbr_menu'));
-             modal.find('#harga_menu').attr("value",div.data('harga_menu'));
-             modal.find('#deskripsi_menu').html(div.data('deskripsi_menu'));
-         });
-     });
+      // Isi nilai pada field
+      modal.find('#id').attr("value", div.data('id'));
+      modal.find('#nama_slot').attr("value", div.data('nama_slot'));
+      modal.find('#nama_menu').attr("value", div.data('nama_menu'));
+      modal.find('#gbr_menu').attr("value", div.data('gbr_menu'));
+      modal.find('#harga_menu').attr("value", div.data('harga_menu'));
+      modal.find('#deskripsi_menu').html(div.data('deskripsi_menu'));
+    });
+  });
+  $(function() {
+    // Summernote
+    $('#deskripsi_menu').summernote({
+      height: 150
+    })
+  })
+</script>
+
+<script>
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+        $('#fotobaru')
+          .attr('src', e.target.result);
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
 </script>
