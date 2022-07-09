@@ -1,14 +1,15 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Backdev extends CI_Controller {
+class Backdev extends CI_Controller
+{
 
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('middleware/DataManager_model');
-		if (!$this->session->userdata('is_login')==TRUE) {
-			redirect('home','refresh');
+		if (!$this->session->userdata('is_login') == TRUE) {
+			redirect('home', 'refresh');
 		}
 	}
 
@@ -50,51 +51,87 @@ class Backdev extends CI_Controller {
 		$this->template->load('template/template', 'page/dashboard/stand', $data);
 	}
 
+	public function resetallstand()
+	{
+		$this->DataManager_model->resetdefault();
+
+		redirect('stand-manager');
+	}
+
 	public function activateStand($id)
 	{
 		$this->DataManager_model->activateStand($id);
 
-		redirect('stand-manager','refresh');
+		redirect('stand-manager', 'refresh');
 	}
 
 	public function deactivateStand($id)
 	{
 		$this->DataManager_model->deactivateStand($id);
 
-		redirect('stand-manager','refresh');
+		redirect('stand-manager', 'refresh');
 	}
 
 	public function applyStand()
 	{
-		$id = $this->input->post('id');
-		$data = array(
-			'nama_slot' => $this->input->post('nama_slot'),
-			'pemilik' => $this->input->post('pemilik'),
-			'blok' => $this->input->post('blok'),
-			'posisi' => $this->input->post('posisi'),
-			'slogan' => $this->input->post('slogan'),
-			'tgl_perubahan' => date("Y-m-d") 
-		);
+		$config['upload_path'] = './assets/vege/images/'; //path folder
+		$config['allowed_types'] = 'jpg|png|jpeg'; //type yang dapat diakses bisa anda sesuaikan
+		$config['encrypt_name'] = TRUE; //nama yang terupload nantinya
 
-		$this->DataManager_model->updateStand($data, $id);
+		$this->upload->initialize($config);
+		if (!empty($_FILES['foto']['name'])) {
+			if ($this->upload->do_upload('foto')) {
+				$gbr = $this->upload->data();
+				//Compress Image
+				$config['image_library'] = 'gd2';
+				$config['source_image'] = '../assets/vege/images/' . $gbr['file_name'];
+				$config['create_thumb'] = FALSE;
+				$config['maintain_ratio'] = FALSE;
+				$config['quality'] = '60%';
+				$config['width'] = 500;
+				$config['height'] = 500;
+				$config['new_image'] = '../assets/vege/images/' . $gbr['file_name'];
+				$this->load->library('image_lib', $config);
+				$this->image_lib->resize();
 
-		redirect('stand-manager','refresh');
+				$id = $this->input->post('id');
+
+				$gambar = $gbr['file_name'];
+				$data = array(
+					'nama_slot' => $this->input->post('nama_slot'),
+					'pemilik' => $this->input->post('pemilik'),
+					'blok' => $this->input->post('blok'),
+					'posisi' => $this->input->post('posisi'),
+					'slogan' => $this->input->post('slogan'),
+					'foto' => $gambar,
+					'tgl_perubahan' => date("Y-m-d")
+				);
+
+				$this->DataManager_model->updateStand($data, $id);
+
+				redirect('stand-manager', 'refresh');
+			} else {
+				redirect('stand-manager', 'refresh');
+			}
+		} else {
+			redirect('stand-manager', 'refresh');
+		}
 	}
 
 	public function resetStand($id)
 	{
 		$data = array(
-			'nama_slot' => 'Stand '.$id,
+			'nama_slot' => 'Stand ' . $id,
 			'pemilik' => 'Wiskul Kerkof',
-			'blok' => 'A/B/C/D',
+			'blok' => 'X',
 			'posisi' => '0',
 			'slogan' => 'Pusat Jajanan Kerkof',
-			'tgl_perubahan' => date("Y-m-d") 
+			'tgl_perubahan' => date("Y-m-d")
 		);
 
 		$this->DataManager_model->updateStand($data, $id);
 
-		redirect('stand-manager','refresh');
+		redirect('stand-manager', 'refresh');
 	}
 
 	public function menu()
@@ -119,114 +156,111 @@ class Backdev extends CI_Controller {
 	public function saveMenu()
 	{
 		$config['upload_path'] = './assets/image/'; //path folder
-	    $config['allowed_types'] = 'jpg|png|jpeg'; //type yang dapat diakses bisa anda sesuaikan
-	    $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
+		$config['allowed_types'] = 'jpg|png|jpeg'; //type yang dapat diakses bisa anda sesuaikan
+		$config['encrypt_name'] = TRUE; //nama yang terupload nantinya
 
-	    $this->upload->initialize($config);
-	    if(!empty($_FILES['gbr_menu']['name'])){
-	        if ($this->upload->do_upload('gbr_menu')){
-	        	$gbr = $this->upload->data();
-	            //Compress Image
-	            $config['image_library']='gd2';
-	            $config['source_image']='./assets/image/'.$gbr['file_name'];
-	            $config['create_thumb']= FALSE;
-	            $config['maintain_ratio']= FALSE;
-	            $config['quality']= '60%';
-	            $config['width']= 700;
-	            $config['height']= 700;
-	            $config['new_image']= './assets/image/'.$gbr['file_name'];
-	            $this->load->library('image_lib', $config);
-	            $this->image_lib->resize();
+		$this->upload->initialize($config);
+		if (!empty($_FILES['gbr_menu']['name'])) {
+			if ($this->upload->do_upload('gbr_menu')) {
+				$gbr = $this->upload->data();
+				//Compress Image
+				$config['image_library'] = 'gd2';
+				$config['source_image'] = './assets/image/' . $gbr['file_name'];
+				$config['create_thumb'] = FALSE;
+				$config['maintain_ratio'] = FALSE;
+				$config['quality'] = '60%';
+				$config['width'] = 700;
+				$config['height'] = 700;
+				$config['new_image'] = './assets/image/' . $gbr['file_name'];
+				$this->load->library('image_lib', $config);
+				$this->image_lib->resize();
 
-	            $gbr_menu=$gbr['file_name'];
+				$gbr_menu = $gbr['file_name'];
 
-                $stand_id=$this->input->post('stand_id');
-                $nama_menu=$this->input->post('nama_menu');
-                $harga_menu=$this->input->post('harga_menu');
-                $deskripsi_menu=$this->input->post('deskripsi_menu');
+				$stand_id = $this->input->post('stand_id');
+				$nama_menu = $this->input->post('nama_menu');
+				$harga_menu = $this->input->post('harga_menu');
+				$deskripsi_menu = $this->input->post('deskripsi_menu');
 
-                $data = array(
-                	'stand_id' => $stand_id,
-                	'nama_menu' => $nama_menu,
-                	'harga_menu' => $harga_menu,
-                	'deskripsi_menu' => $deskripsi_menu,
-                	'gbr_menu' => $gbr_menu 
-                );
+				$data = array(
+					'stand_id' => $stand_id,
+					'nama_menu' => $nama_menu,
+					'harga_menu' => $harga_menu,
+					'deskripsi_menu' => $deskripsi_menu,
+					'gbr_menu' => $gbr_menu
+				);
 
 				$this->DataManager_model->addMenu($data);
 
 				redirect('menu-manager');
-		}else{
+			} else {
+				redirect('menu-manager');
+			}
+		} else {
 			redirect('menu-manager');
-	    }
-	                 
-	    }else{
-			redirect('menu-manager');
-		}	
+		}
 	}
 
 	public function editMenu()
 	{
 		$gbrnow = $this->input->post('gbr_menu');
-		unlink("./assets/image/".$gbrnow);
+		unlink("./assets/image/" . $gbrnow);
 		$id = $this->input->post('id');
 
 		$config['upload_path'] = './assets/image/'; //path folder
-	    $config['allowed_types'] = 'jpg|png|jpeg'; //type yang dapat diakses bisa anda sesuaikan
-	    $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
+		$config['allowed_types'] = 'jpg|png|jpeg'; //type yang dapat diakses bisa anda sesuaikan
+		$config['encrypt_name'] = TRUE; //nama yang terupload nantinya
 
-	    $this->upload->initialize($config);
-	    if(!empty($_FILES['gbr_menu_baru']['name'])){
-	        if ($this->upload->do_upload('gbr_menu_baru')){
-	        	$gbrbaru = $this->upload->data();
-	            //Compress Image
-	            $config['image_library']='gd2';
-	            $config['source_image']='./assets/image/'.$gbrbaru['file_name'];
-	            $config['create_thumb']= FALSE;
-	            $config['maintain_ratio']= FALSE;
-	            $config['quality']= '60%';
-	            $config['width']= 700;
-	            $config['height']= 700;
-	            $config['new_image']= './assets/image/'.$gbrbaru['file_name'];
-	            $this->load->library('image_lib', $config);
-	            $this->image_lib->resize();
+		$this->upload->initialize($config);
+		if (!empty($_FILES['gbr_menu_baru']['name'])) {
+			if ($this->upload->do_upload('gbr_menu_baru')) {
+				$gbrbaru = $this->upload->data();
+				//Compress Image
+				$config['image_library'] = 'gd2';
+				$config['source_image'] = './assets/image/' . $gbrbaru['file_name'];
+				$config['create_thumb'] = FALSE;
+				$config['maintain_ratio'] = FALSE;
+				$config['quality'] = '60%';
+				$config['width'] = 700;
+				$config['height'] = 700;
+				$config['new_image'] = './assets/image/' . $gbrbaru['file_name'];
+				$this->load->library('image_lib', $config);
+				$this->image_lib->resize();
 
-	            $gbr_menu=$gbrbaru['file_name'];
+				$gbr_menu = $gbrbaru['file_name'];
 
 				$data = array(
 					'nama_menu' => $this->input->post('nama_menu'),
 					'harga_menu' => $this->input->post('harga_menu'),
 					'gbr_menu' => $gbr_menu,
-					'deskripsi_menu' => $this->input->post('deskripsi_menu') 
+					'deskripsi_menu' => $this->input->post('deskripsi_menu')
 				);
 
 				$this->DataManager_model->updateMenu($data, $id);
 
 				redirect('menu-manager');
-		}else{
+			} else {
+				redirect('menu-manager');
+			}
+		} else {
 			redirect('menu-manager');
-	    }
-	                 
-	    }else{
-			redirect('menu-manager');
-		}	
-
+		}
 	}
 
 	public function deleteMenu($id)
 	{
-		
+
 		$imagename = $this->DataManager_model->getImageName($id);
 		foreach ($imagename as $n) {
 			$namaproduk = $n['gbr_menu'];
 		}
 
-		unlink("./assets/image/".$namaproduk);
+		unlink("./assets/image/" . $namaproduk);
 
 		$this->db->where('id', $id);
 		$this->db->delete('menu');
 
-		redirect('menu-manager','refresh');
+		redirect('menu-manager', 'refresh');
 	}
 
 	public function qrprime()
@@ -326,10 +360,8 @@ class Backdev extends CI_Controller {
 		$this->db->where('id_konfigurasi', $id);
 		$this->db->update('tbl_konfigurasi', $data);
 
-		redirect('settings','refresh');
+		redirect('settings', 'refresh');
 	}
-	
-
 }
 
 /* End of file BackDev.php */

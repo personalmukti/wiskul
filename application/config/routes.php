@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -49,24 +49,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'home';
+$route['default_controller'] = 'Home';
 // Routing Public
-$route['about-us'] = 'home/about';
-$route['gallery'] = 'home/galeri';
-$route['contact-us'] = 'home/kontak';
-$route['our-location'] = 'home/denahstand';
+$route['about-us'] = 'Home/about';
+$route['gallery'] = 'Home/galeri';
+$route['contact-us'] = 'Home/kontak';
+$route['our-location'] = 'Home/denahstand';
 
 // Routing Admin
 $route['sign-in'] = 'auth/login';
-$route['dashboard'] = 'backdev';
-$route['stand-manager'] = 'backdev/stand';
-$route['menu-manager'] = 'backdev/menu';
-$route['qr-prime'] = 'backdev/qrprime';
-$route['qr-stand'] = 'backdev/qrstand';
-$route['account-manager'] = 'backdev/account';
+$route['dashboard'] = 'Backdev';
+$route['stand-manager'] = 'Backdev/stand';
+$route['reset'] = 'Backdev/resetallstand';
+$route['menu-manager'] = 'Backdev/menu';
+$route['qr-prime'] = 'Backdev/qrprime';
+$route['qr-stand'] = 'Backdev/qrstand';
+$route['account-manager'] = 'Backdev/account';
 $route['update-profil'] = 'auth/editProfile';
-$route['settings'] = 'backdev/setting';
-$route['storesetting'] = 'backdev/saveset';
+$route['settings'] = 'Backdev/setting';
+$route['storesetting'] = 'Backdev/saveset';
 $route['logout'] = 'auth/logout';
 $route['under-construction'] = 'notfound/construction';
 

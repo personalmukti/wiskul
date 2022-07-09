@@ -1,16 +1,32 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class DataManager_model extends CI_Model {
+class DataManager_model extends CI_Model
+{
 
-	function getAllStand() 
+	function getAllStand()
 	{
 		$stand = $this->db->get('stand');
 
 		return $stand;
 	}
 
-	function getActiveStand() 
+	function resetdefault()
+	{
+		$data = array(
+			'nama_slot' => 'Stand Tidak Aktif',
+			'blok' => 'X',
+			'posisi' => '0',
+			'pemilik' => 'Wiskul Kerkof',
+			'Slogan' => 'Pusat jajanan kerkof',
+			'foto' => 'stand.png',
+			'status' => '0',
+		);
+
+		$this->db->update('stand', $data);
+	}
+
+	function getActiveStand()
 	{
 		$status = 1;
 		$this->db->where('status', $status);
@@ -19,7 +35,7 @@ class DataManager_model extends CI_Model {
 		return $stand;
 	}
 
-	function getInActiveStand() 
+	function getInActiveStand()
 	{
 		$status = 0;
 		$this->db->where('status', $status);
@@ -58,13 +74,13 @@ class DataManager_model extends CI_Model {
 
 	public function getStandOne($id)
 	{
-		
-		$query = $this->db->query('SELECT qrlist.stand_id, qrlist.qrcode, stand.nama_slot, stand.slogan, stand.pemilik FROM stand INNER JOIN qrlist ON qrlist.stand_id=stand.id WHERE stand.id='.$id);
+
+		$query = $this->db->query('SELECT qrlist.stand_id, qrlist.qrcode, stand.nama_slot, stand.slogan, stand.pemilik FROM stand INNER JOIN qrlist ON qrlist.stand_id=stand.id WHERE stand.id=' . $id);
 
 		return $query;
 	}
 
-	function getAllMenu() 
+	function getAllMenu()
 	{
 		$query = $this->db->query('SELECT stand.id, stand.nama_slot, menu.id, menu.nama_menu, menu.gbr_menu, menu.harga_menu, menu.deskripsi_menu FROM menu INNER JOIN stand ON stand.id=menu.stand_id;');
 
@@ -87,7 +103,7 @@ class DataManager_model extends CI_Model {
 
 	function getImageName($id)
 	{
-		$filename = $this->db->query('select gbr_menu from menu where id='.$id);
+		$filename = $this->db->query('select gbr_menu from menu where id=' . $id);
 
 		return $filename->result_array();
 	}
@@ -138,7 +154,6 @@ class DataManager_model extends CI_Model {
 		$this->db->where('status', $status);
 
 		return $this->db->get('stand')->result_array();
-
 	}
 
 	function getAbout()
@@ -157,7 +172,6 @@ class DataManager_model extends CI_Model {
 		$this->db->where('id', $id);
 		return $this->db->get('stand')->result_array();
 	}
-
 }
 
 /* End of file DataManager_model.php */
