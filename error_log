@@ -1,0 +1,1 @@
+[07-Jul-2022 13:36:48 UTC] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 12288 bytes) in /home/wisatak1/public_html/system/libraries/Image_lib.php on line 815
