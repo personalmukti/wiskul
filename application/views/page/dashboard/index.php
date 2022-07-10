@@ -163,13 +163,25 @@
               <li>Penambahan fitur Reset Semua Stand pada halaman Manajemen Stand.<span class="badge badge-primary">Baru</span></li>
               <li>Pada proses Edit Stand ditambahkan fitur upload foto stand untuk masing-masing stand.<span class="badge badge-success">Update</span></li>
               <li>Update fitur menu manager dengan merubah form input dan edit data menjadi lebih interaktif.<span class="badge badge-success">Update</span></li>
-              <li>Pada proses edit menu perubahan gambar lama dihapus dan diganti gambah baru sehingga tidak menjadi sampah pada penyimpanan.<span class="badge badge-primary">Baru</span></li>
+              <li>Pada proses edit menu perubahan gambar lama dihapus dan diganti gambar baru sehingga tidak menjadi sampah pada penyimpanan.<span class="badge badge-primary">Baru</span></li>
               <li>Pada halaman publik sekarang setiap item menu bisa dilihat detail itemnya.<span class="badge badge-primary">Baru</span></li>
               <li>Penambahan logo pada Navbar publik dan dashboard.<span class="badge badge-primary">Baru</span></li>
               <li>Optimalisasi bugs aplikasi sudah diselesaikan.<span class="badge badge-success">Update</span></li>
             </b>
           </i>
         </ol>
+        <p>Terdapat beberapa proses updating yang ditambahkan, selain itu terdapat beberapa fitur baru yang diterapkan pada website Wisata Kuliner Kerkof untuk meningkatkan performa dan penghematan penyimpanan. Selain itu beberapa bugs yang terdapat dalam aplikasi sudah diperbaiki dengan Patch A.
+          <br><br>
+          Berikut ini konten yang deterapkan pada Patch A:
+        </p>
+        <ul>
+          <li>Keamanan Password.</li>
+          <li>Penyelesaian Error Updating Data.</li>
+          <li>Penyelesaian Update Error Memory Exhausted Menu Manager.</li>
+          <li>Penyelesaian Error load gambar Frontend.</li>
+          <li>Peningkatan efektifitas Protokol Penyimpanan.</li>
+          <li>Penambahan Mekanisme Keamanan Terenkapsulasi.</li>
+        </ul>
         <p>Untuk informasi lebih lengkap silahkan mendownload file berikut ini : <a href="<?= base_url('assets/changelog/CHANGELOG.txt'); ?>">Changelog</a></p>
         </p>
       </div>
