@@ -1,0 +1,26 @@
+### Update versi berhasil!
+
+Aplikasi saat ini berada pada Versi 1.0.1 Patch A.
+
+#################################################################################################
+
+Berikut ini adalah beberapa perubahan yang ditambahkan pada aplikasi Webmaster Wiskul:
+
+1. Penambahan fitur Reset Semua Stand pada halaman Manajemen Stand.
+2. Pada proses Edit Stand ditambahkan fitur upload foto stand untuk masing-masing stand.
+3. Update fitur menu manager dengan merubah form input dan edit data menjadi lebih interaktif.
+4. Pada proses edit menu perubahan gambar lama dihapus dan diganti gambah baru sehingga tidak menjadi sampah pada penyimpanan.
+5. Pada halaman publik sekarang setiap item menu bisa dilihat detail itemnya.
+6. Penambahan logo pada Navbar publik dan dashboard.
+7. Optimalisasi bugs aplikasi sudah diselesaikan.
+
+Terdapat beberapa proses updating yang ditambahkan, selain itu terdapat beberapa fitur baru yang diterapkan pada website Wisata Kuliner Kerkof untuk meningkatkan performa dan penghematan penyimpanan. Selain itu beberapa bugs yang terdapat dalam aplikasi sudah diperbaiki dengan Patch A.
+
+Berikut ini konten yang deterapkan pada Patch A:
+
+1. Keamanan Password
+2. Penyelesaian Error Updating Data
+3. Penyelesaian Update Error Memory Exhausted Menu Manager.
+4. Penyelesaian Error load gambar Frontend
+5. Peningkatan efektifitas Protokol Penyimpanan.
+6. Penambahan Mekanisme Keamanan Terenkapsulasi.
