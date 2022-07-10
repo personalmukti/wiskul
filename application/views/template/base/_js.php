@@ -108,3 +108,9 @@
     }
   }
 </script>
+
+<script type="text/javascript">
+  $(window).on('load', function() {
+    $('#changelogmodal').modal('show');
+  });
+</script>

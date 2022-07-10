@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Auth extends MY_Controller {
+class Auth extends MY_Controller
+{
 
     public function __construct()
     {
@@ -33,7 +34,9 @@ class Auth extends MY_Controller {
         			</p>
             ');
         } elseif ($query === 2) {
-            $this->session->set_flashdata('alert','<p class="box-msg">
+            $this->session->set_flashdata(
+                'alert',
+                '<p class="box-msg">
               <div class="info-box alert-info">
               <div class="info-box-icon">
               <i class="fa fa-info-circle"></i>
@@ -57,15 +60,15 @@ class Auth extends MY_Controller {
         } else {
             //membuat session dengan nama userData yang artinya nanti data ini bisa di ambil sesuai dengan data yang login
             $userdata = array(
-              'is_login'    => true,
-              'id'          => $query->id,
-              'password'    => $query->password,
-              'id_role'     => $query->id_role,
-              'username'    => $query->username,
-              'first_name'  => $query->first_name,
-              'last_name'   => $query->last_name,
-              'email'       => $query->email,
-              'phone'       => $query->phone
+                'is_login'    => true,
+                'id'          => $query->id,
+                'password'    => $query->password,
+                'id_role'     => $query->id_role,
+                'username'    => $query->username,
+                'first_name'  => $query->first_name,
+                'last_name'   => $query->last_name,
+                'email'       => $query->email,
+                'phone'       => $query->phone
             );
             $this->session->set_userdata($userdata);
             return true;
@@ -95,7 +98,7 @@ class Auth extends MY_Controller {
 
                 //jika bernilai TRUE maka alihkan halaman sesuai dengan level nya
                 if ($data->id_role == '1') {
-                    redirect('backdev');
+                    redirect('dashboard');
                 } elseif ($data->id_role == '2') {
                     redirect('home');
                 }
@@ -111,7 +114,7 @@ class Auth extends MY_Controller {
     {
         $this->Auth_model->updateProfile();
 
-        redirect('account-manager','refresh');
+        redirect('account-manager', 'refresh');
     }
 
     public function logout()
@@ -119,7 +122,6 @@ class Auth extends MY_Controller {
         $this->session->sess_destroy();
         redirect('home');
     }
-
 }
 
 /* End of file Auth.php */

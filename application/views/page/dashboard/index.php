@@ -135,31 +135,47 @@
         </div>
       </div>
       <!-- 2nd row -->
-      <!-- 3rd row -->
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Changelog</h3>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <!-- we are adding the accordion ID so Bootstrap's collapse plugin detects it -->
-              <p>Update versi berhasil. Aplikasi saat ini berada pada versi 1.0.1 Patch A.
-                <br>
-                Berikut ini adalah beberapa perubahan yang ditambahkan pada aplikasi.
-              <ol>
-                <li>Penambahan fitur Reset Semua Stand pada halaman Manajemen Stand.</li>
-                <li>Pada proses Edit Stand ditambahkan fitur upload foto stand untuk masing-masing stand.</li>
-              </ol>
-              </p>
-            </div>
-            <!-- /.card-body -->
-          </div>
-        </div>
-      </div>
-      <!-- 3rd row -->
+
     </div><!-- /.container-fluid -->
   </section>
   <!-- /.content -->
+</div>
+
+<!-- Modal -->
+<div id="changelogmodal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Changelogs</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p><b>Update versi berhasil!</b>
+          <br>
+          Aplikasi saat ini berada pada <b><i>Versi 1.0.1 Patch A</i></b>.
+          <br>
+          Berikut ini adalah beberapa perubahan yang ditambahkan pada aplikasi Webmaster Wiskul:
+        <ol>
+          <i>
+            <b>
+              <li>Penambahan fitur Reset Semua Stand pada halaman Manajemen Stand.<span class="badge badge-primary">Baru</span></li>
+              <li>Pada proses Edit Stand ditambahkan fitur upload foto stand untuk masing-masing stand.<span class="badge badge-success">Update</span></li>
+              <li>Update fitur menu manager dengan merubah form input dan edit data menjadi lebih interaktif.<span class="badge badge-success">Update</span></li>
+              <li>Pada proses edit menu perubahan gambar lama dihapus dan diganti gambah baru sehingga tidak menjadi sampah pada penyimpanan.<span class="badge badge-primary">Baru</span></li>
+              <li>Pada halaman publik sekarang setiap item menu bisa dilihat detail itemnya.<span class="badge badge-primary">Baru</span></li>
+              <li>Penambahan logo pada Navbar publik dan dashboard.<span class="badge badge-primary">Baru</span></li>
+              <li>Optimalisasi bugs aplikasi sudah diselesaikan.<span class="badge badge-success">Update</span></li>
+            </b>
+          </i>
+        </ol>
+        <p>Untuk informasi lebih lengkap silahkan mendownload file berikut ini : <a href="<?= base_url('assets/changelog/CHANGELOG.txt'); ?>">Changelog</a></p>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
 </div>
