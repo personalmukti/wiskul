@@ -8,6 +8,7 @@ class Home extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('middleware/DataManager_model');
+		$this->load->model('Settings_model');
 	}
 
 	public function index()
