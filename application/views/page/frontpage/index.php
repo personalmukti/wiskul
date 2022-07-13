@@ -37,6 +37,45 @@
   </div>
 </section>
 
+<section>
+  <div class="dynamic-gallery">
+    <?php $gbr = $this->Gallery_model->getgalery(); ?>
+    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <?php
+        foreach ($gbr->result_array() as $k => $x) {
+          $active = ($k == 0) ? 'active' : '';
+          echo '<li data-target="#carouselExampleIndicators2" data-slide-to="' . $k . '" class="' . $active . '"></li>';
+        }
+        ?>
+      </ol>
+      <div class="carousel-inner">
+        <?php
+        foreach ($gbr->result_array() as $k => $x) {
+          $active = ($k == 0) ? 'active' : '';
+          echo '<div class="carousel-item ' . $active . '">
+                    <img class="slider-foto" src="' . base_url() . 'assets/image/galeri/' . $x['img'] . '">
+                    <div class="carousel-caption d-none d-md-block">
+                      <p class="mastertag">' . $x['judul'] . '</p>
+                    </div>
+                </div>';
+        }
+        ?>
+
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
 <section class="ftco-section">
   <div class="container">
     <div class="row justify-content-center mb-3 pb-3">

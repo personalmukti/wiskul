@@ -9,6 +9,7 @@ class Backdev extends CI_Controller
 		parent::__construct();
 		$this->load->model('middleware/DataManager_model');
 		$this->load->model('Settings_model');
+		$this->load->model('middleware/Gallery_model');
 		if (!$this->session->userdata('is_login') == TRUE) {
 			redirect('home', 'refresh');
 		}
@@ -24,6 +25,7 @@ class Backdev extends CI_Controller
 		$data['mmenu'] = '';
 		$data['mprofil'] = '';
 		$data['mbarcode'] = '';
+		$data['mgaleri'] = '';
 		$data['mprofil'] = '';
 		$data['msetting'] = '';
 
@@ -44,6 +46,7 @@ class Backdev extends CI_Controller
 		$data['mmenu'] = '';
 		$data['mprofil'] = '';
 		$data['mbarcode'] = '';
+		$data['mgaleri'] = '';
 		$data['mprofil'] = '';
 		$data['msetting'] = '';
 
@@ -145,6 +148,7 @@ class Backdev extends CI_Controller
 		$data['mmenu'] = 'active';
 		$data['mprofil'] = '';
 		$data['mbarcode'] = '';
+		$data['mgaleri'] = '';
 		$data['mprofil'] = '';
 		$data['msetting'] = '';
 
@@ -164,6 +168,7 @@ class Backdev extends CI_Controller
 		$data['mmenu'] = 'active';
 		$data['mprofil'] = '';
 		$data['mbarcode'] = '';
+		$data['mgaleri'] = '';
 		$data['mprofil'] = '';
 		$data['msetting'] = '';
 
@@ -182,6 +187,7 @@ class Backdev extends CI_Controller
 		$data['mmenu'] = 'active';
 		$data['mprofil'] = '';
 		$data['mbarcode'] = '';
+		$data['mgaleri'] = '';
 		$data['mprofil'] = '';
 		$data['msetting'] = '';
 
@@ -312,8 +318,10 @@ class Backdev extends CI_Controller
 		$data['mmenu'] = '';
 		$data['mprofil'] = '';
 		$data['mbarcode'] = 'active';
+		$data['mgaleri'] = '';
 		$data['mprofil'] = '';
 		$data['msetting'] = '';
+
 
 		$this->template->load('template/template', 'page/dashboard/qr_utama', $data);
 	}
@@ -328,6 +336,7 @@ class Backdev extends CI_Controller
 		$data['mmenu'] = '';
 		$data['mprofil'] = '';
 		$data['mbarcode'] = 'active';
+		$data['mgaleri'] = '';
 		$data['mprofil'] = '';
 		$data['msetting'] = '';
 
@@ -356,8 +365,9 @@ class Backdev extends CI_Controller
 		$data['mstand'] = '';
 		$data['mmenu'] = '';
 		$data['mprofil'] = '';
-		$data['mbarcode'] = 'active';
-		$data['mprofil'] = '';
+		$data['mbarcode'] = '';
+		$data['mgaleri'] = '';
+		$data['mprofil'] = 'active';
 		$data['msetting'] = '';
 
 		$data['akun'] = $this->DataManager_model->getProfile();
@@ -375,6 +385,7 @@ class Backdev extends CI_Controller
 		$data['mmenu'] = '';
 		$data['mprofil'] = '';
 		$data['mbarcode'] = '';
+		$data['mgaleri'] = '';
 		$data['mprofil'] = '';
 		$data['msetting'] = 'active';
 
@@ -507,6 +518,67 @@ class Backdev extends CI_Controller
 		$this->db->delete('banner');
 
 		redirect('settings', 'refresh');
+	}
+
+	public function pageGallery()
+	{
+		$data['title'] = 'Pengaturan | Wisata Kuliner Garut';
+		$data['pagename'] = 'General Settings';
+
+		$data['mhome'] = '';
+		$data['mstand'] = '';
+		$data['mmenu'] = '';
+		$data['mprofil'] = '';
+		$data['mbarcode'] = '';
+		$data['mgaleri'] = 'active';
+		$data['mprofil'] = '';
+		$data['msetting'] = '';
+
+		$data['pengaturan'] = $this->DataManager_model->getKonfigurasi();
+		$data['banner'] = $this->Settings_model->getBanner();
+		$data['gbr'] = $this->Gallery_model->getgalery();
+
+		$this->template->load('template/template', 'page/dashboard/upload', $data);
+	}
+
+	function uploadFoto()
+	{
+
+		$config['upload_path'] = './assets/image/galeri/'; //path folder
+		$config['allowed_types'] = 'jpg|png|jpeg'; //type yang dapat diakses bisa anda sesuaikan
+		$config['encrypt_name'] = TRUE; //nama yang terupload nantinya
+
+		$this->upload->initialize($config);
+		if (!empty($_FILES['foto']['name'])) {
+			if ($this->upload->do_upload('foto')) {
+				$gbr = $this->upload->data();
+				//Compress Image
+				$config['image_library'] = 'gd2';
+				$config['source_image'] = './assets/image/galeri/' . $gbr['file_name'];
+				$config['create_thumb'] = FALSE;
+				$config['maintain_ratio'] = FALSE;
+				$config['quality'] = '60%';
+				$config['width'] = 1000;
+				$config['height'] = 750;
+				$config['new_image'] = './assets/image/galeri/' . $gbr['file_name'];
+				$this->load->library('image_lib', $config);
+				$this->image_lib->resize();
+
+				$gambar = $gbr['file_name'];
+				$data = array(
+					'img' => $gambar,
+					'judul' => $this->input->post('judul')
+				);
+
+				$this->Gallery_model->insertgalery($data);
+
+				redirect('gallery-manager', 'refresh');
+			} else {
+				redirect('gallery-manager', 'refresh');
+			}
+		} else {
+			redirect('gallery-manager', 'refresh');
+		}
 	}
 }
 

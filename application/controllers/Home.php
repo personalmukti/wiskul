@@ -8,6 +8,7 @@ class Home extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('middleware/DataManager_model');
+		$this->load->model('middleware/Gallery_model');
 		$this->load->model('Settings_model');
 	}
 
@@ -17,7 +18,6 @@ class Home extends CI_Controller
 
 		$data['webinfo'] = $this->DataManager_model->getKonfigurasi();
 		$data['stand'] = $this->DataManager_model->getStandDisplay();
-		$data['caro'] = $this->DataManager_model->getSlider();
 
 		$this->template->load('template/core/template', 'page/frontpage/index', $data);
 	}

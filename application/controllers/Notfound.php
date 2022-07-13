@@ -1,11 +1,12 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Notfound extends CI_Controller {
+class Notfound extends CI_Controller
+{
 
 	public function index()
 	{
-		echo "<h2> 404 Not Found </h2>";		
+		$this->construction();
 	}
 
 	public function construction()
@@ -14,7 +15,6 @@ class Notfound extends CI_Controller {
 
 		$this->load->view('internal/construction', $data);
 	}
-	
 }
 
 /* End of file Notfound.php */

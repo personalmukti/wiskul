@@ -10019,11 +10019,20 @@ textarea.form-control {
 
     .slider-foto {
       width: 100% !important;
-      height: 400px !important;
+      height: 300px !important;
     }
 
     .mastertag, .tagline {
       color: white;
+    }
+
+    .dynamic-gallery{
+      width: 100% !important;
+    }
+
+    .slider-gallery {
+      width: 100% !important;
+      height: 250px !important;
     }
 
     
