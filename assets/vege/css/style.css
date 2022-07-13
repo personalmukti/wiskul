@@ -10022,4 +10022,8 @@ textarea.form-control {
       height: 400px !important;
     }
 
+    .mastertag, .tagline {
+      color: white;
+    }
+
     

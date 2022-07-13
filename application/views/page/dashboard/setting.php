@@ -128,7 +128,7 @@
                   </div>
                 </div>
 
-                <div class="tab-pane fade" id="custom-tabs-two-profile" role="tabpanel" aria-labelledby="custom-tabs-two-profile-tab">
+                <div class="tab-pane fade" id="tab-page-tagline" role="tabpanel" aria-labelledby="custom-tabs-two-profile-tab">
                   <div class="row">
                     <div class="col-md-12 text-right">
                       <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#inputdata">
@@ -146,7 +146,7 @@
                             <th style="text-align: center !important;">Background</th>
                             <th style="text-align: center !important;">Mastertag</th>
                             <th style="text-align: center !important;">Tagline</th>
-                            <th style="text-align: center !important;"><i class="nav-icon fas fa-cog"></i></th>
+                            <th width="10%" style="text-align: center !important;"><i class="nav-icon fas fa-cog"></i></th>
                           </tr>
                         </thead>
                         <tbody>
@@ -162,7 +162,7 @@
                               <td align="center"><?php echo $q['tagline']; ?></td>
                               <td style="text-align: center !important;">
                                 <a href="javascript:;" data-id="<?php echo $q['id']; ?>" data-mastertag="<?php echo $q['mastertag'] ?>" data-tagline="<?php echo $q['tagline'] ?>" data-img="<?php echo $q['img']; ?>" data-toggle="modal" data-target="#edit-banner" title="Edit Banner" class="btn btn-warning btn-xs"><i class="fas fa-edit"></i></a>
-                                <a href="<?= base_url(); ?>editBanner/<?= $q['id']; ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                <a href="<?= base_url(); ?>Backdev/rmBanner/<?= $q['id']; ?>" class="btn btn-danger btn-xs"><i class="fas fa-trash"></i></a>
                               </td>
                             </tr>
                           <?php $no++;
@@ -180,7 +180,6 @@
                       </table>
                     </div>
                   </div>
-                  >>>>>>> 18f8e52faf395a2de1d9f45d5365a479193b5ca3
                 </div>
                 <div class="tab-pane fade" id="tab-page-musik" role="tabpanel" aria-labelledby="custom-tabs-two-messages-tab">
                   Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna.

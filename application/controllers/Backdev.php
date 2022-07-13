@@ -492,6 +492,23 @@ class Backdev extends CI_Controller
 		}
 	}
 
+	public function rmBanner($id)
+	{
+		$query = $this->db->query('select img from banner where id=' . $id);
+
+		foreach ($query->result() as $row) {
+			$imgname = $row->img;
+		}
+
+		$target = './assets/image/banner/' . $imgname;
+		unlink($target);
+
+		$this->db->where('id', $id);
+		$this->db->delete('banner');
+
+		redirect('settings', 'refresh');
+	}
+
 	function updtendis($id)
 	{
 		$query = $this->db->query('select tendis_foto from tbl_tendis where id=' . $id);
