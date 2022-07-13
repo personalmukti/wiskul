@@ -43,6 +43,9 @@
 <script src="<?= base_url(); ?>assets/lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url(); ?>assets/lte/dist/js/adminlte.js"></script>
+<!-- Ekko Lightbox -->
+<script src="<?= base_url(); ?>assets/lte/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+
 <script>
   $(function() {
     $("#example1").DataTable({
@@ -132,5 +135,67 @@
 <script>
   $('.carousel').carousel({
     interval: 20
+  })
+</script>
+
+<script type="text/javascript">
+  Dropzone.autoDiscover = false;
+
+  var foto_upload = new Dropzone(".dropzone", {
+    url: "<?php echo base_url('index.php/upload/proses_upload') ?>",
+    maxFilesize: 10,
+    method: "post",
+    acceptedFiles: "image/*",
+    paramName: "userfile",
+    dictInvalidFileType: "Type file ini tidak dizinkan",
+    addRemoveLinks: true,
+  });
+
+
+  //Event ketika Memulai mengupload
+  foto_upload.on("sending", function(a, b, c) {
+    a.token = Math.random();
+    c.append("token_foto", a.token); //Menmpersiapkan token untuk masing masing foto
+  });
+
+
+  //Event ketika foto dihapus
+  foto_upload.on("removedfile", function(a) {
+    var token = a.token;
+    $.ajax({
+      type: "post",
+      data: {
+        token: token
+      },
+      url: "<?php echo base_url('upload/remove_foto') ?>",
+      cache: false,
+      dataType: 'json',
+      success: function() {
+        console.log("Foto terhapus");
+      },
+      error: function() {
+        console.log("Error");
+
+      }
+    });
+  });
+</script>
+
+<script>
+  $(function() {
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox({
+        alwaysShowClose: true
+      });
+    });
+
+    $('.filter-container').filterizr({
+      gutterPixels: 3
+    });
+    $('.btn[data-filter]').on('click', function() {
+      $('.btn[data-filter]').removeClass('active');
+      $(this).addClass('active');
+    });
   })
 </script>

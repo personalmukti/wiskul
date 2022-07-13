@@ -66,6 +66,7 @@ $route['menu-manager'] = 'Backdev/menu';
 $route['add-menu'] = 'Backdev/tambahMenu';
 $route['qr-prime'] = 'Backdev/qrprime';
 $route['qr-stand'] = 'Backdev/qrstand';
+$route['gallery-manager'] = 'Backdev/pageGallery';
 $route['account-manager'] = 'Backdev/account';
 $route['update-profil'] = 'auth/editProfile';
 $route['settings'] = 'Backdev/setting';

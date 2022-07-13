@@ -24,12 +24,32 @@
 <link rel="stylesheet" href="<?= base_url(); ?>assets/lte/plugins/summernote/summernote-bs4.min.css">
 <!-- favicon -->
 <link rel="icon" href="<?= base_url(); ?>assets/favicon.ico" type="image/any-icon">
+<!-- Ekko Lightbox -->
+<link rel="stylesheet" href="<?= base_url(); ?>assets/lte/plugins/ekko-lightbox/ekko-lightbox.css">
+
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/upload/dropzone.min.css') ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/upload/basic.min.css') ?>">
+<script type="text/javascript" src="<?php echo base_url('assets/upload/dropzone.min.js') ?>"></script>
 
 <style type="text/css" media="print">
-body {visibility:hidden;}
-.backlink {visibility: hidden;}
-.button-print {visibility: hidden;}
-.print {
-	visibility:visible;
-}
+	body {
+		visibility: hidden;
+	}
+
+	.backlink {
+		visibility: hidden;
+	}
+
+	.button-print {
+		visibility: hidden;
+	}
+
+	.print {
+		visibility: visible;
+	}
+
+	.dropzone {
+		margin-top: 100px;
+		border: 2px dashed #0087F7;
+	}
 </style>

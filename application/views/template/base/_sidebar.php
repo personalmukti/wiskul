@@ -70,6 +70,14 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="<?= base_url('gallery-manager'); ?>" class="nav-link <?php echo $mgaleri; ?>">
+              <i class="nav-icon fas fa-image"></i>
+              <p>
+                Manajemen Galeri
+              </p>
+            </a>
+          </li>
           <li class="nav-header">Account Management</li>
           <li class="nav-item">
             <a href="<?= base_url('account-manager'); ?>" class="nav-link <?php echo $mprofil; ?>">
