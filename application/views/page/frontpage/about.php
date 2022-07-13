@@ -12,20 +12,20 @@
     <section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(<?= base_url(); ?>assets/image/logowk.png);">
+					<div class="col-md-3 p-md-5 img img-2 d-flex justify-content-center align-items-center">
+						<img src="<?= base_url(); ?>assets/image/logowk.png" width="300px" height="300px">
 					</div>
-					<div class="col-md-6 py-5 wrap-about pb-md-5 ftco-animate">
-	          <div class="heading-section-bold mb-4 mt-md-5">
-	          	<?php foreach ($konfig as $y): ?>
-	          	<div class="ml-md-0">
-		            <h2 class="mb-4"><?= $y['nama_website']; ?></h2>
-	            </div>
-	          </div>
-	          <div class="pb-md-5">
-	          	
-	          		<p><?= $y['about']; ?></p>
-	          	<?php endforeach ?>
-	          	
+					<div class="col-md-9 py-5 wrap-about pb-md-5 ftco-animate">
+						<div class="heading-section-bold mb-4 mt-md-5">
+							<?php foreach ($konfig as $y): ?>
+							<div class="ml-md-0">
+								<h2 class="mb-4"><?= $y['nama_website']; ?></h2>
+							</div>
+						</div>
+						<div class="pb-md-5">
+							
+								<p><?= $y['about']; ?></p>
+							<?php endforeach ?>
 						</div>
 					</div>
 				</div>
