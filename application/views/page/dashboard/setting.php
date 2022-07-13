@@ -128,7 +128,57 @@
                   </div>
                 </div>
                 <div class="tab-pane fade" id="custom-tabs-two-profile" role="tabpanel" aria-labelledby="custom-tabs-two-profile-tab">
-                  Mauris tincidunt mi at erat gravida, eget tristique urna bibendum. Mauris pharetra purus ut ligula tempor, et vulputate metus facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas sollicitudin, nisi a luctus interdum, nisl ligula placerat mi, quis posuere purus ligula eu lectus. Donec nunc tellus, elementum sit amet ultricies at, posuere nec nunc. Nunc euismod pellentesque diam.
+                  <div class="row">
+                    <div class="col-md-12 text-right">
+                      <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#inputdata">
+                        Tambah Banner
+                      </button>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-md-12">
+                    <table id="example1" class="table table-bordered table-striped">
+										<thead>
+											<tr>
+												<th style="text-align: center !important;">No.</th>
+												<th style="text-align: center !important;">Background</th>
+												<th style="text-align: center !important;">Mastertag</th>
+												<th style="text-align: center !important;">Tagline</th>
+												<th style="text-align: center !important;"><i class="nav-icon fas fa-cog"></i></th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+											$no = 1;
+											foreach ($banner->result_array() as $q) :
+												
+											?>
+												<tr>
+													<td style="text-align: center !important;"><?php echo $no; ?></td>
+													<td align="center"><img src="<?= base_url(); ?>assets/image/banner/<?php echo $q['img']; ?>" width="250px" height="40px"></td>
+													<td align="center"><?php echo $q['mastertag']; ?></td>
+													<td align="center"><?php echo $q['tagline']; ?></td>
+													<td style="text-align: center !important;">
+                            <a href="javascript:;" data-id="<?php echo $q['id']; ?>" data-mastertag="<?php echo $q['mastertag'] ?>" data-tagline="<?php echo $q['tagline'] ?>" data-img="<?php echo $q['img']; ?>" data-toggle="modal" data-target="#edit-banner" title="Edit Banner" class="btn btn-warning btn-xs"><i class="fas fa-edit"></i></a>
+                            <a href="<?= base_url(); ?>editBanner/<?= $q['id']; ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+													</td>
+												</tr>
+											<?php $no++;
+											endforeach ?>
+										</tbody>
+										<tfoot>
+											<tr>
+                      <th style="text-align: center !important;">No.</th>
+												<th style="text-align: center !important;">Background</th>
+												<th style="text-align: center !important;">Mastertag</th>
+												<th style="text-align: center !important;">Tagline</th>
+												<th style="text-align: center !important;"><i class="nav-icon fas fa-cog"></i></th>
+											</tr>
+										</tfoot>
+									</table>
+                    </div>
+                  </div>
                 </div>
                 <div class="tab-pane fade" id="custom-tabs-two-messages" role="tabpanel" aria-labelledby="custom-tabs-two-messages-tab">
                   Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna.
@@ -145,4 +195,129 @@
     </div><!-- /.container-fluid -->
   </section>
   <!-- /.content -->
+</div>
+
+<div class="modal fade" id="edit-banner">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Edit Data Banner</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<?php $this->view('single_success'); ?>
+				<?php $this->view('single_error'); ?>
+				<form action="<?= base_url('backdev/applyBanner'); ?>" method="post" enctype="multipart/form-data">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<input type="hidden" class="form-control form-control-sm" name="id" id="id" placeholder="ID">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="input-hari">Mastertag :</label>
+								<input type="text" class="form-control form-control-sm" name="mastertag" id="mastertag" placeholder="Mastertag">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="input-hari">Tagline:</label>
+								<input type="text" class="form-control form-control-sm" name="tagline" id="tagline" placeholder="Tagline">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label for="foto">Pilih Background Baru</label>
+                <input type="file" class="form-control-file" id="fotobg" name="fotobg">
+							</div>
+						</div>
+					</div>
+			</div>
+			<div class="modal-footer justify-content-between">
+				<div class="col-md-12">
+					<div class="row text-center">
+						<div class=" col-12 col-md-6">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+						</div>
+						<div class=" col-12 col-md-6">
+							<button type="submit" class="btn btn-primary">Update</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			</form>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="inputdata">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Tambah Banner</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<?php $this->view('single_success'); ?>
+				<?php $this->view('single_error'); ?>
+				<form action="<?= base_url('backdev/saveBanner'); ?>" method="post" enctype="multipart/form-data">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<input type="hidden" class="form-control form-control-sm" name="id" id="id" placeholder="ID">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="input-hari">Mastertag :</label>
+								<input type="text" class="form-control form-control-sm" name="mastertag" id="mastertag" placeholder="Mastertag">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="input-hari">Tagline:</label>
+								<input type="text" class="form-control form-control-sm" name="tagline" id="tagline" placeholder="Tagline">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+								<label for="foto">Pilih Background Baru</label>
+                <input type="file" class="form-control-file" id="fotobg" name="fotobg">
+							</div>
+						</div>
+					</div>
+			</div>
+			<div class="modal-footer justify-content-between">
+				<div class="col-md-12">
+					<div class="row text-center">
+						<div class=" col-12 col-md-12">
+							<button type="submit" class="btn btn-primary">Simpan</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			</form>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
 </div>

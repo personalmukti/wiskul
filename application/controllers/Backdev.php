@@ -8,6 +8,7 @@ class Backdev extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('middleware/DataManager_model');
+		$this->load->model('Settings_model');
 		if (!$this->session->userdata('is_login') == TRUE) {
 			redirect('home', 'refresh');
 		}
@@ -378,6 +379,7 @@ class Backdev extends CI_Controller
 		$data['msetting'] = 'active';
 
 		$data['pengaturan'] = $this->DataManager_model->getKonfigurasi();
+		$data['banner'] = $this->Settings_model->getBanner();
 
 		$this->template->load('template/template', 'page/dashboard/setting', $data);
 	}
@@ -386,8 +388,6 @@ class Backdev extends CI_Controller
 	{
 		$data = array(
 			'nama_website' => $this->input->post('nama_website'),
-			'tagline1' => $this->input->post('tagline1'),
-			'tagline2' => $this->input->post('tagline2'),
 			'email' => $this->input->post('email'),
 			'no_telp' => $this->input->post('no_telp'),
 			'instagram' => $this->input->post('instagram'),
@@ -399,6 +399,97 @@ class Backdev extends CI_Controller
 		$this->db->update('tbl_konfigurasi', $data);
 
 		redirect('settings', 'refresh');
+	}
+
+	public function saveBanner()
+	{
+		$config['upload_path'] = './assets/image/banner/'; //path folder
+		$config['allowed_types'] = 'jpg|png|jpeg'; //type yang dapat diakses bisa anda sesuaikan
+		$config['encrypt_name'] = TRUE; //nama yang terupload nantinya
+
+		$this->upload->initialize($config);
+		if (!empty($_FILES['fotobg']['name'])) {
+			if ($this->upload->do_upload('fotobg')) {
+				$gbr = $this->upload->data();
+				//Compress Image
+				$config['image_library'] = 'gd2';
+				$config['source_image'] = './assets/image/banner/' . $gbr['file_name'];
+				$config['create_thumb'] = FALSE;
+				$config['maintain_ratio'] = FALSE;
+				$config['quality'] = '60%';
+				$config['width'] = 1000;
+				$config['height'] = 700;
+				$config['new_image'] = './assets/image/banner/' . $gbr['file_name'];
+				$this->load->library('image_lib', $config);
+				$this->image_lib->resize();
+
+				$gambar = $gbr['file_name'];
+				$data = array(
+					'img' => $gambar,
+					'mastertag' => $this->input->post('mastertag'),
+					'tagline' => $this->input->post('tagline')
+				);
+
+				$this->Settings_model->insertTagline($data);
+
+				redirect('settings', 'refresh');
+			} else {
+				redirect('settings', 'refresh');
+			}
+		} else {
+			redirect('settings', 'refresh');
+		}
+	}
+
+	public function applyBanner()
+	{
+		$id = $this->input->post('id');
+
+		$query = $this->db->query('select img from banner where id=' . $id);
+
+		foreach ($query->result() as $row) {
+			$imgname = $row->img;
+		}
+
+		$target = './assets/image/banner/' . $imgname;
+		unlink($target);
+
+		$config['upload_path'] = './assets/image/banner/'; //path folder
+		$config['allowed_types'] = 'jpg|png|jpeg'; //type yang dapat diakses bisa anda sesuaikan
+		$config['encrypt_name'] = TRUE; //nama yang terupload nantinya
+
+		$this->upload->initialize($config);
+		if (!empty($_FILES['fotobg']['name'])) {
+			if ($this->upload->do_upload('fotobg')) {
+				$gbr = $this->upload->data();
+				//Compress Image
+				$config['image_library'] = 'gd2';
+				$config['source_image'] = './assets/image/banner/' . $gbr['file_name'];
+				$config['create_thumb'] = FALSE;
+				$config['maintain_ratio'] = FALSE;
+				$config['quality'] = '60%';
+				$config['width'] = 1000;
+				$config['height'] = 700;
+				$config['new_image'] = './assets/image/banner/' . $gbr['file_name'];
+				$this->load->library('image_lib', $config);
+				$this->image_lib->resize();
+
+				$gambar = $gbr['file_name'];
+				$data = array(
+					'img' => $gambar,
+					'mastertag' => $this->input->post('mastertag'),
+					'tagline' => $this->input->post('tagline')
+				);
+
+				$this->Settings_model->updateTagline($data, $id);
+
+				redirect('settings', 'refresh');
+			} else {
+				//redirect('settings', 'refresh');
+			}
+		} else {
+			//redirect('settings', 'refresh');
+		}
 	}
 
 	function updtendis($id)

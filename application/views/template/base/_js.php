@@ -60,6 +60,20 @@
 
   $(document).ready(function() {
     // Untuk sunting
+    $('#edit-banner').on('show.bs.modal', function(event) {
+      var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+      var modal = $(this)
+
+      // Isi nilai pada field
+      modal.find('#id').attr("value", div.data('id'));
+      modal.find('#mastertag').attr("value", div.data('mastertag'));
+      modal.find('#tagline').attr("value", div.data('tagline'));
+      modal.find('#img').html(div.data('img'));
+    });
+  });
+
+  $(document).ready(function() {
+    // Untuk sunting
     $('#edit-data').on('show.bs.modal', function(event) {
       var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
       var modal = $(this)

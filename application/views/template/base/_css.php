@@ -22,6 +22,8 @@
 <link rel="stylesheet" href="<?= base_url(); ?>assets/lte/plugins/daterangepicker/daterangepicker.css">
 <!-- summernote -->
 <link rel="stylesheet" href="<?= base_url(); ?>assets/lte/plugins/summernote/summernote-bs4.min.css">
+<!-- favicon -->
+<link rel="icon" href="<?= base_url(); ?>assets/favicon.ico" type="image/any-icon">
 
 <style type="text/css" media="print">
 body {visibility:hidden;}

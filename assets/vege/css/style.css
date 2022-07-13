@@ -10011,3 +10011,15 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+    
+    .dynamic-slider {
+      width: 100% !important;
+    }
+
+    .slider-foto {
+      width: 100% !important;
+      height: 400px !important;
+    }
+
+    

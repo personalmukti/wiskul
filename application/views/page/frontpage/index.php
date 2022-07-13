@@ -1,67 +1,40 @@
     <section>
-    <?php $banner = $this->Settings_model->getBanner(); ?>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-        <?php
-          foreach ($banner->result_array() as $key => $value) {
-              $active = ($key == 0) ? 'active' : '';
-              echo '<li data-target="#carouselExampleIndicators" data-slide-to="' . $key . '" class="' . $active . '"></li>';
-          }
-          ?>
-        </ol>
-        <div class="carousel-inner">
-        <?php
-          foreach ($banner->result_array() as $key => $value) {
-              $active = ($key == 0) ? 'active' : '';
-              echo '<div class="carousel-item ' . $active . '">
-                  <a href="'.$value['url'].'"><img src="' . base_url() . 'assets/image/banner/' . $value['img'] . '"></a>
-              </div>';
-          }
-          ?>
+      <div class="dynamic-slider">
+        <?php $banner = $this->Settings_model->getBanner(); ?>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+          <?php
+            foreach ($banner->result_array() as $key => $value) {
+                $active = ($key == 0) ? 'active' : '';
+                echo '<li data-target="#carouselExampleIndicators" data-slide-to="' . $key . '" class="' . $active . '"></li>';
+            }
+            ?>
+          </ol>
+          <div class="carousel-inner">
+          <?php
+            foreach ($banner->result_array() as $key => $value) {
+                $active = ($key == 0) ? 'active' : '';
+                echo '<div class="carousel-item ' . $active . '">
+                    <img class="slider-foto" src="' . base_url() . 'assets/image/banner/' . $value['img'] . '">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h3>' . $value['mastertag'] . '</h3>
+                      <h5>' . $value['tagline'] . '</h5>
+                    </div>
+                </div>';
+            }
+            ?>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
       </div>
     </section>
-    
-    <?php foreach ($webinfo->result_array() as $slides) : ?>
-      <section id="home-section" class="hero">
-        <div class="home-slider owl-carousel">
-          <div class="slider-item" style="background-image: url(<?= base_url(); ?>assets/vege/images/bg_1.jpg);">
-            <div class="overlay"></div>
-            <div class="container">
-              <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-
-                <div class="col-md-12 ftco-animate text-center">
-                  <h2 class="mb-3"><?= $slides['tagline1']; ?></h2>
-                  <h3 class="subheading mb-4">Pusat jajanan pilihan, rasa pejabat harga tetap rakyat.</h3>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="slider-item" style="background-image: url(<?= base_url(); ?>assets/vege/images/bg_2.jpg);">
-            <div class="overlay"></div>
-            <div class="container">
-              <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-
-                <div class="col-sm-12 ftco-animate text-center">
-                  <h2 class="mb-2"><?= $slides['tagline2']; ?></h2>
-                  <h3 class="subheading mb-4">Kepuasan pelanggan adalah kepuasan kami.</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    <?php endforeach ?>
 
     <section class="ftco-section ftco-category ftco-no-pt">
       <hr>
