@@ -1,3 +1,4 @@
+<<<<<<< HEAD
       <section id="home-section" class="hero">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height: 300px;">
           <div class="carousel-inner">
@@ -85,9 +86,49 @@
               <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(<?= base_url(); ?>assets/vege/images/4.png);">
               </div>
             </div>
+=======
+    <section>
+      <div class="dynamic-slider">
+        <?php $banner = $this->Settings_model->getBanner(); ?>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+          <?php
+            foreach ($banner->result_array() as $key => $value) {
+                $active = ($key == 0) ? 'active' : '';
+                echo '<li data-target="#carouselExampleIndicators" data-slide-to="' . $key . '" class="' . $active . '"></li>';
+            }
+            ?>
+          </ol>
+          <div class="carousel-inner">
+          <?php
+            foreach ($banner->result_array() as $key => $value) {
+                $active = ($key == 0) ? 'active' : '';
+                echo '<div class="carousel-item ' . $active . '">
+                    <img class="slider-foto" src="' . base_url() . 'assets/image/banner/' . $value['img'] . '">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h3>' . $value['mastertag'] . '</h3>
+                      <h5>' . $value['tagline'] . '</h5>
+                    </div>
+                </div>';
+            }
+            ?>
+>>>>>>> 18f8e52faf395a2de1d9f45d5365a479193b5ca3
           </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
+<<<<<<< HEAD
       </section>
+=======
+      </div>
+    </section>
+>>>>>>> 18f8e52faf395a2de1d9f45d5365a479193b5ca3
 
       <section class="ftco-section">
         <div class="container">

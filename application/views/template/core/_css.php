@@ -20,3 +20,6 @@
     <link rel="stylesheet" href="<?= base_url(); ?>assets/vege/css/flaticon.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/vege/css/icomoon.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/vege/css/style.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="<?= base_url(); ?>assets/favicon.ico" type="image/any-icon">
