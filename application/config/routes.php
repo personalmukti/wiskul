@@ -55,6 +55,7 @@ $route['about-us'] = 'Home/about';
 $route['gallery'] = 'Home/galeri';
 $route['contact-us'] = 'Home/kontak';
 $route['our-location'] = 'Home/denahstand';
+$route['test-caro'] = 'Home/testcaro';
 
 // Routing Admin
 $route['sign-in'] = 'auth/login';

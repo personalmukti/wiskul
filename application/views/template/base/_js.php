@@ -114,3 +114,9 @@
     $('#changelogmodal').modal('show');
   });
 </script>
+
+<script>
+  $('.carousel').carousel({
+    interval: 20
+  })
+</script>

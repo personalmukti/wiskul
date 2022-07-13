@@ -16,6 +16,7 @@ class Home extends CI_Controller
 
 		$data['webinfo'] = $this->DataManager_model->getKonfigurasi();
 		$data['stand'] = $this->DataManager_model->getStandDisplay();
+		$data['caro'] = $this->DataManager_model->getSlider();
 
 		$this->template->load('template/core/template', 'page/frontpage/index', $data);
 	}
@@ -65,6 +66,16 @@ class Home extends CI_Controller
 		$data['webinfo'] = $this->DataManager_model->getKonfigurasi();
 
 		$this->template->load('template/core/template', 'page/frontpage/denah', $data);
+	}
+
+	public function testcaro()
+	{
+		$data['title'] = 'Test Carousel | Wisata Kuliner Garut';
+
+		$data['webinfo'] = $this->DataManager_model->getKonfigurasi();
+		$data['caro'] = $this->DataManager_model->getSlider();
+
+		$this->load->view('page/frontpage/sample', $data);
 	}
 }
 

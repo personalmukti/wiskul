@@ -386,8 +386,6 @@ class Backdev extends CI_Controller
 	{
 		$data = array(
 			'nama_website' => $this->input->post('nama_website'),
-			'tagline1' => $this->input->post('tagline1'),
-			'tagline2' => $this->input->post('tagline2'),
 			'email' => $this->input->post('email'),
 			'no_telp' => $this->input->post('no_telp'),
 			'instagram' => $this->input->post('instagram'),

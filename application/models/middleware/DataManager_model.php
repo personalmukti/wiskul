@@ -188,6 +188,13 @@ class DataManager_model extends CI_Model
 
 		return $item;
 	}
+
+	function getSlider()
+	{
+		$hasil = $this->db->get('tbl_tagline');
+
+		return $hasil;
+	}
 }
 
 /* End of file DataManager_model.php */
