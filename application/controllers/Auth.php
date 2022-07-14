@@ -77,7 +77,7 @@ class Auth extends MY_Controller
 
     public function login()
     {
-        $data['title'] = 'Login | Wisata Kuliner Garut';
+        $data['title'] = 'Login | Wisata Kuliner Kerkof';
 
         //melakukan pengalihan halaman sesuai dengan levelnya
         if ($this->session->userdata('id_role') == "1") {

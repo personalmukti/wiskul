@@ -10080,4 +10080,8 @@ textarea.form-control {
 .frammed-content {
   background-image : url('./assets/image/frame.png');
 }
+
+.gallery-cetion {
+  background-color: #5a6268 !important;
+}
     

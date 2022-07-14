@@ -14,17 +14,18 @@ class Home extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = 'Homepage | Wisata Kuliner Garut';
+		$data['title'] = 'Homepage | Wisata Kuliner Kerkof';
 
 		$data['webinfo'] = $this->DataManager_model->getKonfigurasi();
 		$data['stand'] = $this->DataManager_model->getStandDisplay();
+		$data['jadwal'] = $this->DataManager_model->getJadwal();
 
 		$this->template->load('template/core/template', 'page/frontpage/index', $data);
 	}
 
 	public function details($id)
 	{
-		$data['title'] = 'Detail Stand | Wisata Kuliner Garut';
+		$data['title'] = 'Detail Stand | Wisata Kuliner Kerkof';
 		$data['webinfo'] = $this->DataManager_model->getKonfigurasi();
 		$data['stands'] = $this->DataManager_model->showStand($id);
 		$data['menus'] = $this->DataManager_model->showMenu($id);
@@ -34,7 +35,7 @@ class Home extends CI_Controller
 
 	public function readMenu($id)
 	{
-		$data['title'] = 'Detail Item | Wisata Kuliner Garut';
+		$data['title'] = 'Detail Item | Wisata Kuliner Kerkof';
 		$data['webinfo'] = $this->DataManager_model->getKonfigurasi();
 		$data['item'] = $this->DataManager_model->showItem($id);
 
@@ -43,7 +44,7 @@ class Home extends CI_Controller
 
 	public function about()
 	{
-		$data['title'] = 'Tentang Kami | Wisata Kuliner Garut';
+		$data['title'] = 'Tentang Kami | Wisata Kuliner Kerkof';
 
 		$data['webinfo'] = $this->DataManager_model->getKonfigurasi();
 		$data['konfig'] = $this->DataManager_model->getAbout()->result_array();
@@ -53,7 +54,7 @@ class Home extends CI_Controller
 
 	public function kontak()
 	{
-		$data['title'] = 'Hubungi Kami | Wisata Kuliner Garut';
+		$data['title'] = 'Hubungi Kami | Wisata Kuliner Kerkof';
 
 		$data['webinfo'] = $this->DataManager_model->getKonfigurasi();
 
@@ -62,7 +63,7 @@ class Home extends CI_Controller
 
 	public function denahStand()
 	{
-		$data['title'] = 'Denah Stand | Wisata Kuliner Garut';
+		$data['title'] = 'Denah Stand | Wisata Kuliner Kerkof';
 
 		$data['webinfo'] = $this->DataManager_model->getKonfigurasi();
 
@@ -71,7 +72,7 @@ class Home extends CI_Controller
 
 	public function testcaro()
 	{
-		$data['title'] = 'Test Carousel | Wisata Kuliner Garut';
+		$data['title'] = 'Test Carousel | Wisata Kuliner Kerkof';
 
 		$data['webinfo'] = $this->DataManager_model->getKonfigurasi();
 		$data['caro'] = $this->DataManager_model->getSlider();

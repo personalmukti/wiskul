@@ -134,7 +134,7 @@
 
 <script>
   $('.carousel').carousel({
-    interval: 20
+    interval: 10
   })
 </script>
 

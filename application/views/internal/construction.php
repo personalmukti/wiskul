@@ -30,7 +30,7 @@
 		<span></span>
 		<div class="flex-col-c p-t-50 p-b-50">
 			<h3 class="l1-txt1 txt-center p-b-10">
-				Wisata Kuliner Garut
+				Wisata Kuliner Kerkof
 			</h3>
 
 			<p class="txt-center l1-txt2 p-b-60">
@@ -67,7 +67,7 @@
 		<span class="s1-txt3 txt-center">
 			Copyright &copy; <script>
 				document.write(new Date().getFullYear())
-			</script> Wisata Kuliner Garut.
+			</script> Wisata Kuliner Kerkof.
 		</span>
 
 	</div>

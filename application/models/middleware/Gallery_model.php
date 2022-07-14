@@ -19,6 +19,7 @@ class Gallery_model extends CI_Model
 
     public function getlimitgalery()
     {
+        $this->db->order_by('id', 'DESC');
         $hasil = $this->db->get('galeri', 4);
 
         return $hasil;

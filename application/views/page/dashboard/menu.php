@@ -8,7 +8,7 @@
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?= base_url('dashboard'); ?>">Wisata Kuliner Garut</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('dashboard'); ?>">Wisata Kuliner Kerkof</a></li>
             <li class="breadcrumb-item active"><?= $pagename; ?></li>
           </ol>
         </div><!-- /.col -->
@@ -24,7 +24,7 @@
         <div class="col-lg-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Data Stand Wisata Kuliner Garut</h3>
+              <h3 class="card-title">Data Stand Wisata Kuliner Kerkof</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">

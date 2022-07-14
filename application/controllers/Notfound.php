@@ -11,7 +11,7 @@ class Notfound extends CI_Controller
 
 	public function construction()
 	{
-		$data['title'] = 'Under Construction| Wisata Kuliner Garut';
+		$data['title'] = 'Under Construction| Wisata Kuliner Kerkof';
 
 		$this->load->view('internal/construction', $data);
 	}
