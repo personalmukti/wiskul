@@ -10076,4 +10076,8 @@ textarea.form-control {
   padding: 20px;
   border-radius: .5rem;
 }
+
+.frammed-content {
+  background-image : url('./assets/image/frame.png');
+}
     

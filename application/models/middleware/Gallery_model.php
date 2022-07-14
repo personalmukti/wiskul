@@ -19,7 +19,7 @@ class Gallery_model extends CI_Model
 
     public function getlimitgalery()
     {
-        $hasil = $this->db->get('galeri', 3);
+        $hasil = $this->db->get('galeri', 4);
 
         return $hasil;
     }
