@@ -16,6 +16,13 @@ class Gallery_model extends CI_Model
 
         return $hasil;
     }
+
+    public function getlimitgalery()
+    {
+        $hasil = $this->db->get('galeri', 3);
+
+        return $hasil;
+    }
 }
 
 

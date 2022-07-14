@@ -37,6 +37,19 @@
   </div>
 </section>
 
+<section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center mb-3 pb-3">
+      <div class="col-md-12 heading-section text-center ftco-animate">
+        <span class="subheading">LIVE MUSIK HARI INI</span>
+        <h2 class="mb-4">OnTheWay Band</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 
 <section>
   <div class="dynamic-gallery">
     <?php $gbr = $this->Gallery_model->getgalery(); ?>
@@ -54,7 +67,7 @@
         foreach ($gbr->result_array() as $k => $x) {
           $active = ($k == 0) ? 'active' : '';
           echo '<div class="carousel-item ' . $active . '">
-                    <img class="slider-foto" src="' . base_url() . 'assets/image/galeri/' . $x['img'] . '">
+                    <img class="slider-foto" width="100px" height="100px" src="' . base_url() . 'assets/image/galeri/' . $x['img'] . '">
                     <div class="carousel-caption d-none d-md-block">
                       <p class="mastertag">' . $x['judul'] . '</p>
                     </div>
@@ -73,6 +86,10 @@
       </a>
     </div>
   </div>
+</section> -->
+
+<section>
+  <?php require_once('gallery.php'); ?>
 </section>
 
 
