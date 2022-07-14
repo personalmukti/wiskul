@@ -39,57 +39,34 @@
 
 <section class="ftco-section">
   <div class="container">
-    <div class="row justify-content-center mb-3 pb-3">
-      <div class="col-md-12 heading-section text-center ftco-animate">
-        <span class="subheading">LIVE MUSIK HARI INI</span>
-        <h2 class="mb-4">OnTheWay Band</h2>
+    <div class="frammed-content">
+      <div class="row justify-content-center mb-3 pb-3">
+        <div class="col-md-12 heading-section text-center ftco-animate">
+            <p>
+              <img src="<?= base_url('assets/image/top-frame.png'); ?>">
+              <span class="subheading">LIVE MUSIK HARI INI</span>
+              <h2 class="mb-4">OnTheWay Band</h2>
+              <img src="<?= base_url('assets/image/bottom-frame.png'); ?>">
+            </p>
+          </div>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- 
-<section>
-  <div class="dynamic-gallery">
-    <?php $gbr = $this->Gallery_model->getgalery(); ?>
-    <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <?php
-        foreach ($gbr->result_array() as $k => $x) {
-          $active = ($k == 0) ? 'active' : '';
-          echo '<li data-target="#carouselExampleIndicators2" data-slide-to="' . $k . '" class="' . $active . '"></li>';
-        }
-        ?>
-      </ol>
-      <div class="carousel-inner">
-        <?php
-        foreach ($gbr->result_array() as $k => $x) {
-          $active = ($k == 0) ? 'active' : '';
-          echo '<div class="carousel-item ' . $active . '">
-                    <img class="slider-foto" width="100px" height="100px" src="' . base_url() . 'assets/image/galeri/' . $x['img'] . '">
-                    <div class="carousel-caption d-none d-md-block">
-                      <p class="mastertag">' . $x['judul'] . '</p>
-                    </div>
-                </div>';
-        }
-        ?>
-
+<section class="ftco-section ftco-partner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+          <?php $gbr = $this->Gallery_model->getlimitgalery(); ?>
+          <?php foreach ($gbr->result_array() as $i => $value): ?>
+            <div class="col-sm ftco-animate fadeInUp ftco-animated">
+              <a href="<?= base_url(); ?>assets/image/banner/<?= $value['img']; ?>" class="partner"><img src="<?= base_url(); ?>assets/image/banner/<?= $value['img']; ?>" class="img-fluid" alt="<?= $value['judul']; ?>"></a>
+            </div>
+          <?php endforeach ?>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators2" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
     </div>
   </div>
-</section> -->
-
-<section>
-  <?php require_once('gallery.php'); ?>
 </section>
 
 
