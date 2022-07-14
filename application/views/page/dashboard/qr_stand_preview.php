@@ -45,7 +45,7 @@
                 <div class="row">
                   <div class="col-sm-12 text-center">
                     <hr>
-                    Provided by : Wisata Kuliner Garut.
+                    Provided by : Wisata Kuliner Kerkof.
                     <hr>
                   </div>
                 </div>

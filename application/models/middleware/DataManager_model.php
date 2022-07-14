@@ -195,6 +195,27 @@ class DataManager_model extends CI_Model
 
 		return $hasil;
 	}
+
+	function getArtis()
+	{
+		$artis = $this->db->get('artis');
+
+		return $artis;
+	}
+
+	function saveJadwal($data)
+	{
+		$this->db->update('jadwal', $data);
+
+		return TRUE;
+	}
+
+	function getJadwal()
+	{
+		$hasil = $this->db->get('jadwal');
+
+		return $hasil;
+	}
 }
 
 /* End of file DataManager_model.php */

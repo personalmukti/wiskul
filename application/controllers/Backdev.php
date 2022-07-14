@@ -17,7 +17,7 @@ class Backdev extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = 'Dashboard | Wisata Kuliner Garut';
+		$data['title'] = 'Dashboard | Wisata Kuliner Kerkof';
 		$data['pagename'] = 'Dashboard';
 
 		$data['mhome'] = 'active';
@@ -38,7 +38,7 @@ class Backdev extends CI_Controller
 
 	public function stand()
 	{
-		$data['title'] = 'Stand | Wisata Kuliner Garut';
+		$data['title'] = 'Stand | Wisata Kuliner Kerkof';
 		$data['pagename'] = 'Stand Manager';
 
 		$data['mhome'] = '';
@@ -140,7 +140,7 @@ class Backdev extends CI_Controller
 
 	public function menu()
 	{
-		$data['title'] = 'Menu | Wisata Kuliner Garut';
+		$data['title'] = 'Menu | Wisata Kuliner Kerkof';
 		$data['pagename'] = 'Menu Manager';
 
 		$data['mhome'] = '';
@@ -160,7 +160,7 @@ class Backdev extends CI_Controller
 
 	public function tambahMenu()
 	{
-		$data['title'] = 'Tambah Menu | Wisata Kuliner Garut';
+		$data['title'] = 'Tambah Menu | Wisata Kuliner Kerkof';
 		$data['pagename'] = 'Menu Manager';
 
 		$data['mhome'] = '';
@@ -179,7 +179,7 @@ class Backdev extends CI_Controller
 
 	public function updateMenu($id)
 	{
-		$data['title'] = 'Edit Menu | Wisata Kuliner Garut';
+		$data['title'] = 'Edit Menu | Wisata Kuliner Kerkof';
 		$data['pagename'] = 'Menu Manager';
 
 		$data['mhome'] = '';
@@ -310,7 +310,7 @@ class Backdev extends CI_Controller
 
 	public function qrprime()
 	{
-		$data['title'] = 'Barcode | Wisata Kuliner Garut';
+		$data['title'] = 'Barcode | Wisata Kuliner Kerkof';
 		$data['pagename'] = 'Barcode Utama';
 
 		$data['mhome'] = '';
@@ -328,7 +328,7 @@ class Backdev extends CI_Controller
 
 	public function qrstand()
 	{
-		$data['title'] = 'Barcode | Wisata Kuliner Garut';
+		$data['title'] = 'Barcode | Wisata Kuliner Kerkof';
 		$data['pagename'] = 'Barcode Stand';
 
 		$data['mhome'] = '';
@@ -348,7 +348,7 @@ class Backdev extends CI_Controller
 	public function qrstandpreview($id)
 	{
 
-		$data['title'] = 'Printing | Wisata Kuliner Garut';
+		$data['title'] = 'Printing | Wisata Kuliner Kerkof';
 		$data['pagename'] = 'Barcode Stand';
 
 		$data['dstand'] = $this->DataManager_model->getStandOne($id);
@@ -358,7 +358,7 @@ class Backdev extends CI_Controller
 
 	public function account()
 	{
-		$data['title'] = 'Profile | Wisata Kuliner Garut';
+		$data['title'] = 'Profile | Wisata Kuliner Kerkof';
 		$data['pagename'] = 'Account Manager';
 
 		$data['mhome'] = '';
@@ -377,7 +377,7 @@ class Backdev extends CI_Controller
 
 	public function setting()
 	{
-		$data['title'] = 'Pengaturan | Wisata Kuliner Garut';
+		$data['title'] = 'Pengaturan | Wisata Kuliner Kerkof';
 		$data['pagename'] = 'General Settings';
 
 		$data['mhome'] = '';
@@ -391,6 +391,7 @@ class Backdev extends CI_Controller
 
 		$data['pengaturan'] = $this->DataManager_model->getKonfigurasi();
 		$data['banner'] = $this->Settings_model->getBanner();
+		$data['artis'] = $this->DataManager_model->getArtis();
 
 		$this->template->load('template/template', 'page/dashboard/setting', $data);
 	}
@@ -522,7 +523,7 @@ class Backdev extends CI_Controller
 
 	public function pageGallery()
 	{
-		$data['title'] = 'Pengaturan | Wisata Kuliner Garut';
+		$data['title'] = 'Pengaturan | Wisata Kuliner Kerkof';
 		$data['pagename'] = 'General Settings';
 
 		$data['mhome'] = '';
@@ -579,6 +580,31 @@ class Backdev extends CI_Controller
 		} else {
 			redirect('gallery-manager', 'refresh');
 		}
+	}
+
+	function setJadwal()
+	{
+		$data = array(
+			'hari' => $this->input->post('hari'),
+			'artis' => $this->input->post('artis')
+		);
+
+		$this->DataManager_model->saveJadwal($data);
+
+		redirect('settings');
+	}
+
+	function saveArtis()
+	{
+		$nama_artis = $this->input->post('nama_artis');
+
+		$data = array(
+			'nama_artis' => $nama_artis
+		);
+
+		$this->db->insert('artis', $data);
+
+		redirect('settings');
 	}
 }
 

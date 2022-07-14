@@ -8,7 +8,7 @@
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?= base_url('dashboard'); ?>">Wisata Kuliner Garut</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('dashboard'); ?>">Wisata Kuliner Kerkof</a></li>
             <li class="breadcrumb-item active"><?= $pagename; ?></li>
           </ol>
         </div><!-- /.col -->
@@ -91,7 +91,7 @@
                   <div id="collapseOne" class="collapse" data-parent="#accordion" style="">
                     <div class="card-body">
                       <p align="justify">
-                        Pada menu ini, admin dapat melakukan manajemen stand di Wisata Kuliner Garut. Dalam hal ini admin dapat melakukan perubahan informasi slot stand yang berada di area Wisata Kuliner Garut. Menu ini digunakan untuk merubah kepemilikan slot stand, apabila kepemilikan slot stand berubah seperti berganti nama stand, berganti slogan, maupun berganti pemilik, serta tanggal masuk pemilik baru di slot stand yang tersedia.
+                        Pada menu ini, admin dapat melakukan manajemen stand di Wisata Kuliner Kerkof. Dalam hal ini admin dapat melakukan perubahan informasi slot stand yang berada di area Wisata Kuliner Kerkof. Menu ini digunakan untuk merubah kepemilikan slot stand, apabila kepemilikan slot stand berubah seperti berganti nama stand, berganti slogan, maupun berganti pemilik, serta tanggal masuk pemilik baru di slot stand yang tersedia.
                       </p>
                     </div>
                   </div>

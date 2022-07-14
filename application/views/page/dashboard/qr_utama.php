@@ -8,7 +8,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<?= base_url('dashboard'); ?>">Wisata Kuliner Garut</a></li>
+              <li class="breadcrumb-item"><a href="<?= base_url('dashboard'); ?>">Wisata Kuliner Kerkof</a></li>
               <li class="breadcrumb-item active"><?= $pagename; ?></li>
             </ol>
           </div><!-- /.col -->
@@ -37,7 +37,7 @@
               <div class="card-body print" style="background-image: url(<?= base_url(); ?>assets/image/background-qr.jpg); background-repeat: no-repeat; background-size: cover;">
                 <div class="row">
                   <div class="col-md-12 text-center" >
-                    <h3><b>Wisata Kuliner Garut</b></h3>
+                    <h3><b>Wisata Kuliner Kerkof</b></h3>
                     <h5>Tempat Jajannya Orang Garut</h5>
                   </div>
                 </div>

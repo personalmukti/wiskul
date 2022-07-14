@@ -45,7 +45,10 @@
             <p>
               <img src="<?= base_url('assets/image/top-frame.png'); ?>">
               <span class="subheading">LIVE MUSIK HARI INI</span>
-              <h2 class="mb-4">OnTheWay Band</h2>
+              <?php foreach ($jadwal->result_array() as $j) : ?>
+                <h5><?= $j['hari']; ?></h5>
+                <h2 class="mb-4"><?= $j['artis']; ?></h2>
+              <?php endforeach ?>
               <img src="<?= base_url('assets/image/bottom-frame.png'); ?>">
             </p>
           </div>
@@ -57,13 +60,27 @@
 <section class="ftco-section ftco-partner">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 heading-section text-center ftco-animate">
+        <span class="subheading">Gallery</span>
+        <h2 class="mb-4">Wisata Kuliner Kerkof</h2>
+        <p>Setiap momment yang berhasil kami abadikan</p>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
           <?php $gbr = $this->Gallery_model->getlimitgalery(); ?>
-          <?php foreach ($gbr->result_array() as $i => $value): ?>
-            <div class="col-sm ftco-animate fadeInUp ftco-animated">
-              <a href="<?= base_url(); ?>assets/image/banner/<?= $value['img']; ?>" class="partner"><img src="<?= base_url(); ?>assets/image/banner/<?= $value['img']; ?>" class="img-fluid" alt="<?= $value['judul']; ?>"></a>
-            </div>
-          <?php endforeach ?>
+          <div class="col-sm ftco-animate fadeInUp ftco-animated">
+            <?php foreach ($gbr->result_array() as $i): ?>
+              <img src="<?= base_url(); ?>assets/image/galeri/<?= $i['img']; ?>" class="img-fluid" alt="<?= $i['judul']; ?>" width="250px" height="250px">
+            <?php endforeach ?>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <hr>
+        <p><a href="#" class="btn btn-info btn-sm">Semua Galeri</a></p>
       </div>
     </div>
   </div>

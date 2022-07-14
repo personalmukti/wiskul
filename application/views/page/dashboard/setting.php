@@ -8,7 +8,7 @@
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="<?= base_url('dashboard'); ?>">Wisata Kuliner Garut</a></li>
+            <li class="breadcrumb-item"><a href="<?= base_url('dashboard'); ?>">Wisata Kuliner Kerkof</a></li>
             <li class="breadcrumb-item active"><?= $pagename; ?></li>
           </ol>
         </div><!-- /.col -->
@@ -179,15 +179,94 @@
                   </div>
                 </div>
                 <div class="tab-pane fade" id="tab-page-musik" role="tabpanel" aria-labelledby="custom-tabs-two-messages-tab">
-                  Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac ornare magna.
+                  <div class="row">
+                    <div class="col-md-12">
+                    <form action="<?= base_url('backdev/setJadwal'); ?>" method="post" enctype="multipart/form-data">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="input-hari">Pilih hari :</label>
+                            <select class="form-control form-control-sm" id="hari" name="hari" aria-label="Default select example">
+                              <option selected>== Tidak dipilih ==</option>
+                              <option value="Senin">Senin</option>
+                              <option value="Selasa">Selasa</option>
+                              <option value="Rabu">Rabu</option>
+                              <option value="Kamis">Kamis</option>
+                              <option value="Jumat">Jumat</option>
+                              <option value="Sabtu">Sabtu</option>
+                              <option value="Minggu">Minggu</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label for="input-hari">Pilih Artis:</label>
+                            <select class="form-control form-control-sm" id="artis" name="artis" aria-label="Default select example">
+                              <option selected="selected" value="">== Tidak dipilih ==</option>
+                              <?php foreach ($artis->result_array() as $k) : ?>
+                                <option value="<?= $k['nama_artis']; ?>"><?= $k['nama_artis']; ?></option>
+                              <?php endforeach ?>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="modal-footer justify-content-between">
+                    <div class="col-md-12">
+                      <div class="row text-center">
+                        <div class=" col-12 col-md-12">
+                          <button type="submit" class="btn btn-primary">Terapkan</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </form>
+                  <hr>
+                  
+                    </div>
+                    <div class="row">
+          <div class="col-12">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h4 class="card-title">Tambah Artis</h4>
+              </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-12">
+                  <form action="<?= base_url('backdev/saveArtis'); ?>" method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="input-hari">Nama Artis:</label>
+                                        <input type="text" class="form-control form-control-sm" name="nama_artis" id="nama_artis" placeholder="Nama Artis">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="custom-file">
+                                            <button type="submit" class="btn btn-primary">Tambahkan</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+                  </div>
                 </div>
               </div>
             </div>
             <!-- /.card -->
           </div>
-        </div>
-      </div>
-    </div><!-- /.container-fluid -->
+        </div><!-- /.container-fluid -->
   </section>
   <!-- /.content -->
 </div>
