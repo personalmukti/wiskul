@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Jul 2022 pada 02.27
+-- Waktu pembuatan: 14 Jul 2022 pada 09.35
 -- Versi server: 10.4.24-MariaDB
--- Versi PHP: 8.1.6
+-- Versi PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `wisatak1_kerkofmaster`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `artis`
+--
+
+CREATE TABLE `artis` (
+  `id` int(11) NOT NULL,
+  `nama_artis` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `artis`
+--
+
+INSERT INTO `artis` (`id`, `nama_artis`) VALUES
+(1, 'OnTheWay Band'),
+(2, 'Lina Geboy'),
+(3, 'Sarah Azhari'),
+(4, 'Juwita Bahar'),
+(5, 'Ayu Tingting');
 
 -- --------------------------------------------------------
 
@@ -39,8 +61,8 @@ CREATE TABLE `banner` (
 --
 
 INSERT INTO `banner` (`id`, `img`, `mastertag`, `tagline`) VALUES
-(3, '36066242d7f030437e376bb71d5f53d6.jpg', 'Pusat Jajanan Murah Keluarga', 'Nikmati berbagai pilihan menu yang terjangkau.'),
-(4, '9e68bc581cf69347cbc9226991af8b4d.jpg', 'Pusat Jajanan Murah Keluarga', 'Nikmati berbagai pilihan menu yang terjangkau.');
+(6, '19c282cf3830ddc50acdc9821f274f44.jpg', 'Ini diedit', 'ini juga di edit'),
+(7, '84f18cb1a4cda757a7668dcc2b941bd4.jpg', 'Ini diedit asdasdsada dasdasda', 'ini juga di edit asdsadsadasd dasdasdsadasa');
 
 -- --------------------------------------------------------
 
@@ -59,14 +81,36 @@ CREATE TABLE `galeri` (
 --
 
 INSERT INTO `galeri` (`id`, `img`, `judul`) VALUES
-(1, '4e4efd2d4dcb7dec2aa97d102c00e199.jpg', 'Judul 1'),
-(2, '99a9a3d78c9f51cab7e9cdf9fb818717.jpg', 'Judul 2'),
-(3, '4e4efd2d4dcb7dec2aa97d102c00e199.jpg', 'Judul 1'),
-(4, '99a9a3d78c9f51cab7e9cdf9fb818717.jpg', 'Judul 2'),
-(5, '4e4efd2d4dcb7dec2aa97d102c00e199.jpg', 'Judul 1'),
-(6, '99a9a3d78c9f51cab7e9cdf9fb818717.jpg', 'Judul 2'),
-(7, '4e4efd2d4dcb7dec2aa97d102c00e199.jpg', 'Judul 1'),
-(8, '99a9a3d78c9f51cab7e9cdf9fb818717.jpg', 'Judul 2');
+(11, '02ee1712dbb40c470913567824a03aaf.jpg', 'Moment 1'),
+(12, 'a7ab7e9853076dacfc63736e1e92c3f5.jpg', 'Moment 2'),
+(13, '02ee1712dbb40c470913567824a03aaf.jpg', 'Moment 1'),
+(14, 'a7ab7e9853076dacfc63736e1e92c3f5.jpg', 'Moment 2'),
+(15, '02ee1712dbb40c470913567824a03aaf.jpg', 'Moment 1'),
+(16, 'a7ab7e9853076dacfc63736e1e92c3f5.jpg', 'Moment 2'),
+(17, '02ee1712dbb40c470913567824a03aaf.jpg', 'Moment 1'),
+(18, 'a7ab7e9853076dacfc63736e1e92c3f5.jpg', 'Moment 2'),
+(19, 'cdbdb4c32eb04572b15b3033315058ff.jpg', 'asdasdasd'),
+(20, '05d9fceceedcbfb2a8c55ad0c614e72f.png', 'Moment 1'),
+(21, 'c4834109b4dfc8efbb5835dae5b9ceaa.jpg', 'Pengumuman Hasil Seleksi Enumerator SGSI 2020');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `jadwal`
+--
+
+CREATE TABLE `jadwal` (
+  `id` int(11) NOT NULL,
+  `hari` varchar(50) NOT NULL,
+  `artis` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `jadwal`
+--
+
+INSERT INTO `jadwal` (`id`, `hari`, `artis`) VALUES
+(1, 'Sabtu', 'Sarah Azhari');
 
 -- --------------------------------------------------------
 
@@ -284,7 +328,7 @@ CREATE TABLE `tbl_konfigurasi` (
 --
 
 INSERT INTO `tbl_konfigurasi` (`id_konfigurasi`, `nama_website`, `tagline1`, `tagline2`, `logo`, `favicon`, `gbr1`, `gbr2`, `gbr3`, `gbr4`, `email`, `no_telp`, `alamat`, `instagram`, `keywords`, `metatext`, `about`) VALUES
-(1, 'Wisata Kuliner Kerkof', '', '', 'user.png', 'user.png', '', '', '', '', 'wisatakulinerkerkof@gmail.com', '083839450068', 'Jl. Merdeka, Haurpanggung, Kec. Tarogong Kidul, Kabupaten Garut, Jawa Barat 44151', '@wisatakulinerkerkof', 'wisatakulinerkerkof, wisata, kuliner, kerkof, Wisata Kuliner Kerkof, jajanan kerkof', 'Pusat Jajanan Kuliner Kerkof. Nikmati berbagai pilihan kuliner ditemani alunan musik asyik.', 'Mauris tincidunt mi at erat gravida, eget tristique urna bibendum. Mauris pharetra purus ut ligula tempor, et vulputate metus facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas sollicitudin, nisi a luctus interdum, nisl ligula placerat mi, quis posuere purus ligula eu lectus. Donec nunc tellus, elementum sit amet ultricies at, posuere nec nunc. Nunc euismod pellentesque diam.');
+(1, 'Wisata Kuliner Kerkof', '', '', 'user.png', 'user.png', '', '', '', '', 'wisatakulinerkerkof@gmail.com', '083839450068', 'Jl. Merdeka, Haurpanggung, Kec. Tarogong Kidul, Kabupaten Garut, Jawa Barat 44151', '@wisatakulinerkerkof', 'wisatakulinerkerkof, wisata, kuliner, kerkof, wisata kuliner garut, jajanan kerkof', 'Pusat Jajanan Kuliner Kerkof. Nikmati berbagai pilihan kuliner ditemani alunan musik asyik.', 'Mauris tincidunt mi at erat gravida, eget tristique urna bibendum. Mauris pharetra purus ut ligula tempor, et vulputate metus facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas sollicitudin, nisi a luctus interdum, nisl ligula placerat mi, quis posuere purus ligula eu lectus. Donec nunc tellus, elementum sit amet ultricies at, posuere nec nunc. Nunc euismod pellentesque diam.');
 
 -- --------------------------------------------------------
 
@@ -357,6 +401,12 @@ INSERT INTO `tbl_user` (`id`, `id_role`, `username`, `password`, `first_name`, `
 --
 
 --
+-- Indeks untuk tabel `artis`
+--
+ALTER TABLE `artis`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `banner`
 --
 ALTER TABLE `banner`
@@ -366,6 +416,12 @@ ALTER TABLE `banner`
 -- Indeks untuk tabel `galeri`
 --
 ALTER TABLE `galeri`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `jadwal`
+--
+ALTER TABLE `jadwal`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -417,16 +473,28 @@ ALTER TABLE `tbl_user`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `artis`
+--
+ALTER TABLE `artis`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT untuk tabel `banner`
 --
 ALTER TABLE `banner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT untuk tabel `jadwal`
+--
+ALTER TABLE `jadwal`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `menu`
