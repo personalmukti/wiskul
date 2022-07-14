@@ -59,9 +59,9 @@
     <div class="row">
       <div class="col-md-12">
           <?php $gbr = $this->Gallery_model->getlimitgalery(); ?>
-          <?php foreach ($gbr->result_array() as $i => $value): ?>
+          <?php foreach ($gbr->result_array() as $i): ?>
             <div class="col-sm ftco-animate fadeInUp ftco-animated">
-              <a href="<?= base_url(); ?>assets/image/banner/<?= $value['img']; ?>" class="partner"><img src="<?= base_url(); ?>assets/image/banner/<?= $value['img']; ?>" class="img-fluid" alt="<?= $value['judul']; ?>"></a>
+              <a href="<?= base_url(); ?>assets/image/galeri/<?= $i['img']; ?>" class="partner"><img src="<?= base_url(); ?>assets/image/galeri/<?= $i['img']; ?>" class="img-fluid" alt="<?= $i['judul']; ?>" width="300px" height="300px"></a>
             </div>
           <?php endforeach ?>
       </div>
