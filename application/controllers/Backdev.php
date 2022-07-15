@@ -96,6 +96,7 @@ class Backdev extends CI_Controller
 				$config['quality'] = '60%';
 				$config['width'] = 500;
 				$config['height'] = 500;
+				$config['max_size'] = 10000;
 				$config['new_image'] = '../assets/vege/images/' . $gbr['file_name'];
 				$this->load->library('image_lib', $config);
 				$this->image_lib->resize();
@@ -216,6 +217,7 @@ class Backdev extends CI_Controller
 				$config['quality'] = '60%';
 				$config['width'] = 700;
 				$config['height'] = 700;
+				$config['max_size'] = 10000;
 				$config['new_image'] = './assets/image/menu/' . $gbr['file_name'];
 				$this->load->library('image_lib', $config);
 				$this->image_lib->resize();
@@ -269,6 +271,7 @@ class Backdev extends CI_Controller
 				$config['quality'] = '60%';
 				$config['width'] = 700;
 				$config['height'] = 700;
+				$config['max_size'] = 10000;
 				$config['new_image'] = './assets/image/menu/' . $gbrbaru['file_name'];
 				$this->load->library('image_lib', $config);
 				$this->image_lib->resize();
@@ -432,6 +435,7 @@ class Backdev extends CI_Controller
 				$config['quality'] = '60%';
 				$config['width'] = 1000;
 				$config['height'] = 700;
+				$config['max_size'] = 10000;
 				$config['new_image'] = './assets/image/banner/' . $gbr['file_name'];
 				$this->load->library('image_lib', $config);
 				$this->image_lib->resize();
@@ -483,6 +487,7 @@ class Backdev extends CI_Controller
 				$config['quality'] = '60%';
 				$config['width'] = 1000;
 				$config['height'] = 700;
+				$config['max_size'] = 10000;
 				$config['new_image'] = './assets/image/banner/' . $gbr['file_name'];
 				$this->load->library('image_lib', $config);
 				$this->image_lib->resize();
@@ -562,6 +567,7 @@ class Backdev extends CI_Controller
 				$config['quality'] = '60%';
 				$config['width'] = 1000;
 				$config['height'] = 750;
+				$config['max_size'] = 10000;
 				$config['new_image'] = './assets/image/galeri/' . $gbr['file_name'];
 				$this->load->library('image_lib', $config);
 				$this->image_lib->resize();

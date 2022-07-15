@@ -15,10 +15,10 @@
         foreach ($banner->result_array() as $key => $value) {
           $active = ($key == 0) ? 'active' : '';
           echo '<div class="carousel-item ' . $active . '">
-                    <img class="slider-foto" src="' . base_url() . 'assets/image/banner/' . $value['img'] . '">
-                    <div class="carousel-caption d-none d-md-block">
+                    <img class="slider-foto" src="' . base_url() . 'assets/image/banner/' . $value['img'] . '"  class="img-fluid">
+                    <div class="carousel-caption d-md-block">
                       <h3 class="mastertag">' . $value['mastertag'] . '</h3>
-                      <h6 class="tagline">' . $value['tagline'] . '</h5>
+                      <h5 class="tagline">' . $value['tagline'] . '</h5>
                     </div>
                 </div>';
         }
@@ -43,13 +43,25 @@
       <div class="row justify-content-center mb-3 pb-3">
         <div class="col-md-12 heading-section text-center ftco-animate">
             <p>
-              <img src="<?= base_url('assets/image/top-frame.png'); ?>">
-              <span class="subheading">LIVE MUSIK HARI INI</span>
-              <?php foreach ($jadwal->result_array() as $j) : ?>
-                <h5><?= $j['hari']; ?></h5>
-                <h2 class="mb-4"><?= $j['artis']; ?></h2>
-              <?php endforeach ?>
-              <img src="<?= base_url('assets/image/bottom-frame.png'); ?>">
+              <div class="row">
+                <div class="col-12">
+                  <img src="<?= base_url('assets/image/top-frame.png'); ?>" class="img-fluid">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                <span class="subheading">LIVE MUSIK HARI INI</span>
+                  <?php foreach ($jadwal->result_array() as $j) : ?>
+                    <h5><?= $j['hari']; ?></h5>
+                    <h2 class="mb-4"><?= $j['artis']; ?></h2>
+                  <?php endforeach ?>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <img src="<?= base_url('assets/image/bottom-frame.png'); ?>" class="img-fluid">
+                </div>
+              </div>
             </p>
           </div>
       </div>
