@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Jul 2022 pada 09.35
+-- Waktu pembuatan: 15 Jul 2022 pada 02.58
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -32,17 +32,6 @@ CREATE TABLE `artis` (
   `nama_artis` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `artis`
---
-
-INSERT INTO `artis` (`id`, `nama_artis`) VALUES
-(1, 'OnTheWay Band'),
-(2, 'Lina Geboy'),
-(3, 'Sarah Azhari'),
-(4, 'Juwita Bahar'),
-(5, 'Ayu Tingting');
-
 -- --------------------------------------------------------
 
 --
@@ -56,13 +45,6 @@ CREATE TABLE `banner` (
   `tagline` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data untuk tabel `banner`
---
-
-INSERT INTO `banner` (`id`, `img`, `mastertag`, `tagline`) VALUES
-(6, '19c282cf3830ddc50acdc9821f274f44.jpg', 'Ini diedit', 'ini juga di edit'),
-(7, '84f18cb1a4cda757a7668dcc2b941bd4.jpg', 'Ini diedit asdasdsada dasdasda', 'ini juga di edit asdsadsadasd dasdasdsadasa');
 
 -- --------------------------------------------------------
 
@@ -75,23 +57,6 @@ CREATE TABLE `galeri` (
   `img` text NOT NULL,
   `judul` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `galeri`
---
-
-INSERT INTO `galeri` (`id`, `img`, `judul`) VALUES
-(11, '02ee1712dbb40c470913567824a03aaf.jpg', 'Moment 1'),
-(12, 'a7ab7e9853076dacfc63736e1e92c3f5.jpg', 'Moment 2'),
-(13, '02ee1712dbb40c470913567824a03aaf.jpg', 'Moment 1'),
-(14, 'a7ab7e9853076dacfc63736e1e92c3f5.jpg', 'Moment 2'),
-(15, '02ee1712dbb40c470913567824a03aaf.jpg', 'Moment 1'),
-(16, 'a7ab7e9853076dacfc63736e1e92c3f5.jpg', 'Moment 2'),
-(17, '02ee1712dbb40c470913567824a03aaf.jpg', 'Moment 1'),
-(18, 'a7ab7e9853076dacfc63736e1e92c3f5.jpg', 'Moment 2'),
-(19, 'cdbdb4c32eb04572b15b3033315058ff.jpg', 'asdasdasd'),
-(20, '05d9fceceedcbfb2a8c55ad0c614e72f.png', 'Moment 1'),
-(21, 'c4834109b4dfc8efbb5835dae5b9ceaa.jpg', 'Pengumuman Hasil Seleksi Enumerator SGSI 2020');
 
 -- --------------------------------------------------------
 
@@ -110,7 +75,7 @@ CREATE TABLE `jadwal` (
 --
 
 INSERT INTO `jadwal` (`id`, `hari`, `artis`) VALUES
-(1, 'Sabtu', 'Sarah Azhari');
+(1, 'Senin', 'Nama Artis');
 
 -- --------------------------------------------------------
 
@@ -126,13 +91,6 @@ CREATE TABLE `menu` (
   `deskripsi_menu` text NOT NULL,
   `gbr_menu` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `menu`
---
-
-INSERT INTO `menu` (`id`, `stand_id`, `nama_menu`, `harga_menu`, `deskripsi_menu`, `gbr_menu`) VALUES
-(5, 1, 'Bunga Putih', 5000, '<p>Deskripsi na anyar deui :</p><ul><li>Ayeuna mah aya ieu an</li><li>Terus aya ieu</li><li>Ieu ge bisa di tambahan</li></ul><p>Tah ku kitu na mekanisme menu ayeuna mah geus alus.</p>', '69b41ffd5e4ac0dfa43c7cf0a5f531e2.jpg');
 
 -- --------------------------------------------------------
 
@@ -361,14 +319,6 @@ CREATE TABLE `tbl_tagline` (
   `tagline` text NOT NULL,
   `background` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `tbl_tagline`
---
-
-INSERT INTO `tbl_tagline` (`id`, `keyword`, `tagline`, `background`) VALUES
-(1, 'Pusat Jajanan Keluarga Terjangkau', 'Selamat datang di Wisata Kuliner Kerkof', 'bg_1.jpg'),
-(2, 'Pengen jajan tapi gak tau lagi pengen beli apa?', 'Pusat Jajanan paling lengkap dengan berbagai aneka pilihan menu.', 'bg_2.jpg');
 
 -- --------------------------------------------------------
 

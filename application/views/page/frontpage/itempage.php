@@ -15,8 +15,8 @@
 	        <div class="row">
 	            <?php foreach ($item->result() as $q) : ?>
 	                <div class="col-lg-3 mb-5 ftco-animate">
-	                    <a href="<?= base_url(); ?>assets/image/<?= $q->gbr_menu; ?>" class="image-popup">
-	                        <img src="<?= base_url(); ?>assets/image/<?= $q->gbr_menu; ?>" class="img-fluid" alt="<?= base_url(); ?>assets/image/<?= $q->nama_menu; ?>"></a>
+	                    <a href="<?= base_url(); ?>assets/image/menu/<?= $q->gbr_menu; ?>" class="image-popup">
+	                        <img src="<?= base_url(); ?>assets/image/menu/<?= $q->gbr_menu; ?>" class="img-fluid" alt="<?= base_url(); ?>assets/image/menu/<?= $q->nama_menu; ?>"></a>
 	                </div>
 	                <div class="col-lg-9 product-details pl-md-5 ftco-animate">
 	                    <h3><?= $q->nama_menu; ?></h3>
@@ -40,6 +40,9 @@
 	                    <p class="price"><span>Rp. <?= $q->harga_menu; ?>,-</span></p>
 	                    <hr>
 	                    <p><?= $q->deskripsi_menu; ?></p>
+						<form>
+							<input type="button" class="btn btn-info btn-xs" value="Kembali!" onclick="history.back()">
+						</form>
 	                    <!--<div class="row mt-4">
 	                        <div class="col-md-6">
 	                            <div class="form-group d-flex">

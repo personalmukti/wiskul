@@ -130,6 +130,7 @@ class Backdev extends CI_Controller
 			'blok' => 'X',
 			'posisi' => '0',
 			'slogan' => 'Pusat Jajanan Kerkof',
+			'foto' => 'stand.png',
 			'tgl_perubahan' => date("Y-m-d")
 		);
 
@@ -199,7 +200,7 @@ class Backdev extends CI_Controller
 
 	public function saveMenu()
 	{
-		$config['upload_path'] = './assets/image/'; //path folder
+		$config['upload_path'] = './assets/image/menu/'; //path folder
 		$config['allowed_types'] = 'jpg|png|jpeg'; //type yang dapat diakses bisa anda sesuaikan
 		$config['encrypt_name'] = TRUE; //nama yang terupload nantinya
 
@@ -209,13 +210,13 @@ class Backdev extends CI_Controller
 				$gbr = $this->upload->data();
 				//Compress Image
 				$config['image_library'] = 'gd2';
-				$config['source_image'] = './assets/image/' . $gbr['file_name'];
+				$config['source_image'] = './assets/image/menu/' . $gbr['file_name'];
 				$config['create_thumb'] = FALSE;
 				$config['maintain_ratio'] = FALSE;
 				$config['quality'] = '60%';
 				$config['width'] = 700;
 				$config['height'] = 700;
-				$config['new_image'] = './assets/image/' . $gbr['file_name'];
+				$config['new_image'] = './assets/image/menu/' . $gbr['file_name'];
 				$this->load->library('image_lib', $config);
 				$this->image_lib->resize();
 
@@ -248,11 +249,11 @@ class Backdev extends CI_Controller
 	public function editMenu()
 	{
 		$gbrnow = $this->input->post('fotolama');
-		unlink("./assets/image/" . $gbrnow);
+		unlink("./assets/image/menu/" . $gbrnow);
 
 		$id = $this->input->post('id');
 
-		$config['upload_path'] = './assets/image/'; //path folder
+		$config['upload_path'] = './assets/image/menu/'; //path folder
 		$config['allowed_types'] = 'jpg|png|jpeg'; //type yang dapat diakses bisa anda sesuaikan
 		$config['encrypt_name'] = TRUE; //nama yang terupload nantinya
 
@@ -262,13 +263,13 @@ class Backdev extends CI_Controller
 				$gbrbaru = $this->upload->data();
 				//Compress Image
 				$config['image_library'] = 'gd2';
-				$config['source_image'] = './assets/image/' . $gbrbaru['file_name'];
+				$config['source_image'] = './assets/image/menu/' . $gbrbaru['file_name'];
 				$config['create_thumb'] = FALSE;
 				$config['maintain_ratio'] = FALSE;
 				$config['quality'] = '60%';
 				$config['width'] = 700;
 				$config['height'] = 700;
-				$config['new_image'] = './assets/image/' . $gbrbaru['file_name'];
+				$config['new_image'] = './assets/image/menu/' . $gbrbaru['file_name'];
 				$this->load->library('image_lib', $config);
 				$this->image_lib->resize();
 
@@ -300,7 +301,7 @@ class Backdev extends CI_Controller
 			$namaproduk = $n['gbr_menu'];
 		}
 
-		unlink("./assets/image/" . $namaproduk);
+		unlink("./assets/image/menu/" . $namaproduk);
 
 		$this->db->where('id', $id);
 		$this->db->delete('menu');
@@ -580,6 +581,23 @@ class Backdev extends CI_Controller
 		} else {
 			redirect('gallery-manager', 'refresh');
 		}
+	}
+
+	public function deleteimg($id)
+	{
+		$query = $this->db->query('select img from galeri where id=' . $id);
+
+		foreach ($query->result() as $row) {
+			$imgname = $row->img;
+		}
+
+		$target = './assets/image/galeri/' . $imgname;
+		unlink($target);
+
+		$this->db->where('id', $id);
+		$this->db->delete('galeri');
+
+		redirect('gallery-manager', 'refresh');
 	}
 
 	function setJadwal()

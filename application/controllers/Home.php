@@ -70,14 +70,14 @@ class Home extends CI_Controller
 		$this->template->load('template/core/template', 'page/frontpage/denah', $data);
 	}
 
-	public function testcaro()
+	public function togallery()
 	{
-		$data['title'] = 'Test Carousel | Wisata Kuliner Kerkof';
+		$data['title'] = 'Galeri Kami | Wisata Kuliner Kerkof';
 
 		$data['webinfo'] = $this->DataManager_model->getKonfigurasi();
-		$data['caro'] = $this->DataManager_model->getSlider();
+		$data['gbr'] = $this->Gallery_model->getgalery();
 
-		$this->load->view('page/frontpage/sample', $data);
+		$this->template->load('template/core/template', 'page/frontpage/pagegallery', $data);
 	}
 }
 

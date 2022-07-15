@@ -18,7 +18,7 @@
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<a href="<?= base_url(); ?>Home/readMenu/<?= $menu['id']; ?>">
 							<div class="product">
-								<img class="img-fluid" src="<?= base_url(); ?>assets/image/<?= $menu['gbr_menu']; ?>" alt="Gambar Menu">
+								<img class="img-fluid" src="<?= base_url(); ?>assets/image/menu/<?= $menu['gbr_menu']; ?>">
 								<div class="text py-3 pb-4 px-3 text-center">
 									<h3><?= $menu['nama_menu']; ?></h3>
 									<div class="d-flex">

@@ -80,7 +80,7 @@
     <div class="row">
       <div class="col-md-12 text-center">
         <hr>
-        <p><a href="#" class="btn btn-info btn-sm">Semua Galeri</a></p>
+        <p><a href="<?= base_url('gallery'); ?>" class="btn btn-info btn-sm">Semua Galeri</a></p>
       </div>
     </div>
   </div>

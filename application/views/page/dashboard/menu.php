@@ -66,7 +66,7 @@
                           <td style="text-align: center !important;"><?php echo $no; ?></td>
                           <td><?php echo $q['nama_slot']; ?></td>
                           <td><?php echo $q['nama_menu']; ?></td>
-                          <td style="text-align: center !important;"><img style="max-width: 150px; max-height: 100px;" src="<?= base_url(); ?>assets/image/<?php echo $q['gbr_menu']; ?>" alt=""> </td>
+                          <td style="text-align: center !important;"><img style="max-width: 150px; max-height: 100px;" src="<?= base_url(); ?>assets/image/menu/<?php echo $q['gbr_menu']; ?>" alt=""> </td>
                           <td>Rp. <?php echo $q['harga_menu']; ?>,00</td>
                           <td style="text-align: justify !important;"><?php echo $q['deskripsi_menu']; ?></td>
                           <td style="text-align: center !important;">

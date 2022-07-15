@@ -68,14 +68,27 @@
                         <div class="card-body">
                             <div class="row">
                                 <?php foreach ($gbr->result_array() as $i) : ?>
-                                    <div class="col-sm-2">
-                                        <a href="<?= base_url(); ?>assets/image/galeri/<?= $i['img']; ?>" data-toggle="lightbox" data-title="<?= $i['judul']; ?>" data-gallery="gallery">
-                                            <img src="<?= base_url(); ?>assets/image/galeri/<?= $i['img']; ?>" class="img-fluid mb-2" alt="<?= $i['judul']; ?>">
-                                        </a>
+                                    
+                                    <div class="card col-sm-2 ">
+                                        <div class="card-body">
+                                            <div class="justify-content-center">
+                                                <a href="<?= base_url(); ?>assets/image/galeri/<?= $i['img']; ?>" data-toggle="lightbox" data-title="<?= $i['judul']; ?>" data-gallery="gallery">
+                                                    <img src="<?= base_url(); ?>assets/image/galeri/<?= $i['img']; ?>" class="img-fluid mb-2" alt="<?= $i['judul']; ?>">
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="row">
+                                                <div class="container justify-content-center">
+                                                    <a class="btn btn-danger btn-xs" href="<?= base_url(); ?>Backdev/deleteimg/<?= $i['id']; ?>">Hapus</a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 <?php endforeach ?>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>

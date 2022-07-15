@@ -182,7 +182,7 @@
           <li>Peningkatan efektifitas Protokol Penyimpanan.</li>
           <li>Penambahan Mekanisme Keamanan Terenkapsulasi.</li>
         </ul>
-        <p>Untuk informasi lebih lengkap silahkan mendownload file berikut ini : <a href="<?= base_url('assets/changelog/CHANGELOG.txt'); ?>">Changelog</a></p>
+        <p>Untuk informasi lebih lengkap silahkan mendownload file berikut ini : <a href="<?= base_url('assets/changelog/CHANGELOG.pdf'); ?>">Changelog</a></p>
         </p>
       </div>
       <div class="modal-footer">

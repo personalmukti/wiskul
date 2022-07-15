@@ -68,7 +68,7 @@
                                         <!-- textarea -->
                                         <div class="form-group">
                                             <label>Gambar Lama</label>
-                                            <img id="fotolama" src="<?= base_url(); ?>assets/image/<?= $q['gbr_menu'] ?>" alt="<?= $q['nama_menu']; ?>" width="100px" height="100px" />
+                                            <img id="fotolama" src="<?= base_url(); ?>assets/image/menu/<?= $q['gbr_menu'] ?>" alt="<?= $q['nama_menu']; ?>" width="100px" height="100px" />
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
